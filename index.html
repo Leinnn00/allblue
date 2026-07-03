@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Blue Cebu | セブ島ダイビング&マリンスポーツ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0d2b4e;
+    --navy-2:#123a66;
+    --ocean:#1c74b3;
+    --teal:#0e9488;
+    --coral:#ef5b3d;
+    --coral-dark:#c93f24;
+    --sand:#fbf7ef;
+    --ink:#16242f;
+    --muted:#66727c;
+    --line:#e7e2d6;
+    --line-blue:#0000;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Zen Kaku Gothic New',sans-serif;color:var(--ink);background:var(--sand);line-height:1.7;}
+  h1,h2,h3{font-weight:700;margin:0;}
+  p{margin:0;}
+  img{display:block;max-width:100%;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .num{font-family:'Poppins',sans-serif;}
+
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1180px;margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand .mark{width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;font-size:15px;}
+  .brand .name{font-weight:700;font-size:19px;color:var(--navy);letter-spacing:.3px;}
+  .brand .sub{font-size:10px;color:var(--muted);letter-spacing:1.5px;}
+  .nav-links{display:flex;gap:28px;font-size:14.5px;font-weight:500;color:var(--ink);}
+  .nav-links a:hover{color:var(--coral);}
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .tel{font-size:13px;color:var(--muted);}
+  .tel b{color:var(--navy);font-size:15px;}
+  .btn-line{background:#06C755;color:#fff;font-weight:700;font-size:14px;padding:10px 20px;border-radius:30px;display:flex;align-items:center;gap:6px;}
+
+  /* hero */
+  .hero{position:relative;height:640px;overflow:hidden;}
+  .hero img{width:100%;height:100%;object-fit:cover;}
+  .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,30,50,.85) 0%,rgba(10,30,50,.25) 45%,rgba(10,30,50,.35) 100%);}
+  .hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;padding:0 20px;}
+  .hero-eyebrow{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);padding:6px 16px;border-radius:20px;font-size:13px;letter-spacing:1px;margin-bottom:20px;backdrop-filter:blur(2px);}
+  .hero h1{font-size:46px;line-height:1.4;text-shadow:0 2px 12px rgba(0,0,0,.3);}
+  .hero p.lead{margin-top:16px;font-size:16.5px;color:#eaf2f8;max-width:560px;}
+  .hero-btns{display:flex;gap:14px;margin-top:32px;}
+  .btn-primary{background:var(--coral);color:#fff;font-weight:700;padding:15px 30px;border-radius:30px;font-size:15px;box-shadow:0 8px 20px rgba(239,91,61,.4);}
+  .btn-ghost{border:1.5px solid #fff;color:#fff;font-weight:700;padding:15px 30px;border-radius:30px;font-size:15px;}
+
+  /* category quick nav - overlaps hero bottom */
+  .quickcat{position:relative;margin-top:-56px;z-index:10;}
+  .quickcat-inner{background:#fff;border-radius:22px;box-shadow:0 20px 50px rgba(15,40,70,.15);padding:26px;display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+  .cat-card{border-radius:14px;padding:18px 10px;text-align:center;cursor:pointer;transition:transform .15s;}
+  .cat-card:hover{transform:translateY(-4px);}
+  .cat-card .ico{font-size:30px;margin-bottom:8px;}
+  .cat-card .lbl{font-size:13.5px;font-weight:700;}
+  .cat-1{background:#e5f2fb;color:#0c497c;}
+  .cat-2{background:#fdf1e2;color:#8a4e0c;}
+  .cat-3{background:#e2f5f1;color:#0b6e5c;}
+  .cat-4{background:#fdeaea;color:#a32d2d;}
+  .cat-5{background:#f1eefd;color:#4c3b9d;}
+
+  /* trust bar */
+  .trust{display:flex;justify-content:space-between;max-width:1000px;margin:64px auto 0;padding:0 24px;flex-wrap:wrap;gap:24px;text-align:center;}
+  .trust .item .num{font-size:30px;font-weight:700;color:var(--navy);}
+  .trust .item .cap{font-size:13px;color:var(--muted);margin-top:4px;}
+
+  /* section titles */
+  .section{padding:80px 0;}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 44px;}
+  .sec-tag{color:var(--coral);font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;}
+  .sec-title{font-size:32px;margin-top:10px;color:var(--navy);}
+  .sec-desc{margin-top:12px;color:var(--muted);font-size:15px;}
+
+  /* tour cards */
+  .tour-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .tour-card{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);transition:box-shadow .2s,transform .2s;}
+  .tour-card:hover{box-shadow:0 20px 40px rgba(15,40,70,.12);transform:translateY(-4px);}
+  .tour-photo{position:relative;height:180px;}
+  .tour-photo img{width:100%;height:100%;object-fit:cover;}
+  .tour-photo .badge{position:absolute;top:12px;left:12px;background:var(--coral);color:#fff;font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:20px;}
+  .tour-body{padding:20px 20px 22px;}
+  .tour-tags{font-size:12px;color:var(--ocean);font-weight:700;margin-bottom:8px;}
+  .tour-title{font-size:16.5px;font-weight:700;color:var(--ink);min-height:50px;}
+  .tour-feats{margin-top:12px;font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:5px;}
+  .tour-foot{margin-top:16px;display:flex;justify-content:space-between;align-items:flex-end;border-top:1px dashed var(--line);padding-top:14px;}
+  .price{font-size:22px;font-weight:700;color:var(--coral-dark);}
+  .price span{font-size:12px;color:var(--muted);font-weight:500;}
+  .rating{font-size:12.5px;color:var(--muted);text-align:right;}
+  .rating b{color:var(--ink);}
+  .stars{color:#f5a623;}
+
+  /* about band */
+  .about{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;border-radius:28px;margin:0 24px;padding:64px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;max-width:1132px;margin-left:auto;margin-right:auto;}
+  .about-photo{border-radius:18px;overflow:hidden;height:360px;}
+  .about-photo img{width:100%;height:100%;object-fit:cover;}
+  .about h2{font-size:30px;}
+  .about p{margin-top:16px;color:#cfe0ee;font-size:15px;}
+  .about-feats{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .about-feats .f{background:rgba(255,255,255,.08);border-radius:12px;padding:14px 16px;font-size:13.5px;}
+  .about-feats .f b{display:block;font-size:14.5px;margin-bottom:2px;}
+
+  /* reviews */
+  .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .review-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;}
+  .review-stars{color:#f5a623;font-size:14px;margin-bottom:10px;}
+  .review-text{font-size:14px;color:var(--ink);}
+  .review-who{margin-top:16px;display:flex;align-items:center;gap:10px;}
+  .avatar{width:38px;height:38px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;}
+  .review-who .name{font-size:13.5px;font-weight:700;}
+  .review-who .trip{font-size:12px;color:var(--muted);}
+
+  /* cta band */
+  .ctaband{background:var(--coral);border-radius:28px;margin:0 24px;padding:56px;max-width:1132px;margin-left:auto;margin-right:auto;text-align:center;color:#fff;}
+  .ctaband h2{font-size:28px;}
+  .ctaband p{margin-top:10px;color:#ffe8e0;}
+  .ctaband .btns{margin-top:28px;display:flex;justify-content:center;gap:16px;}
+  .ctaband .btn-line{background:#06C755;}
+  .ctaband .btn-web{background:#fff;color:var(--coral-dark);font-weight:700;padding:15px 28px;border-radius:30px;font-size:14.5px;}
+
+  /* footer */
+  footer{background:var(--navy);color:#c9d9e6;padding:56px 0 24px;margin-top:80px;}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;}
+  .foot-grid h4{color:#fff;font-size:14px;margin-bottom:14px;}
+  .foot-grid a{display:block;font-size:13.5px;margin-bottom:9px;color:#aec3d4;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:20px;text-align:center;font-size:12.5px;color:#8fa6b8;}
+
+  /* mobile nav toggle (hidden on desktop) */
+  .navtoggle-input{display:none;}
+  .hamburger{display:none;font-size:26px;line-height:1;color:var(--navy);cursor:pointer;padding:4px;}
+
+  @media (max-width:1024px){
+    .about{grid-template-columns:1fr;padding:44px;gap:32px;}
+    .about-photo{height:260px;order:-1;}
+    .tour-grid{grid-template-columns:repeat(2,1fr);}
+    .review-grid{grid-template-columns:1fr 1fr;}
+  }
+
+  @media (max-width:860px){
+    .nav{position:relative;flex-wrap:wrap;padding:12px 20px;}
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;gap:0;border-bottom:1px solid var(--line);box-shadow:0 12px 20px rgba(15,40,70,.08);}
+    .nav-links a{padding:14px 20px;border-top:1px solid var(--line);font-size:15px;}
+    .navtoggle-input:checked ~ .nav-links{display:flex;}
+    .hamburger{display:block;order:3;}
+    .brand{order:1;}
+    .nav-cta{order:2;gap:10px;}
+    .tel{display:none;}
+    .btn-line{font-size:13px;padding:9px 16px;}
+    .brand .sub{display:none;}
+    .brand .name{font-size:17px;}
+
+    .hero{height:520px;}
+    .hero h1{font-size:30px;}
+    .hero p.lead{font-size:14px;padding:0 8px;}
+    .hero-btns{flex-direction:column;width:100%;max-width:280px;}
+    .btn-primary,.btn-ghost{width:100%;text-align:center;padding:14px 20px;}
+
+    .quickcat{margin-top:-40px;}
+    .quickcat-inner{grid-template-columns:repeat(3,1fr);gap:10px;padding:16px;border-radius:16px;}
+    .cat-card{padding:12px 4px;}
+    .cat-card .ico{font-size:22px;margin-bottom:6px;}
+    .cat-card .lbl{font-size:11.5px;}
+
+    .trust{margin-top:40px;gap:20px;}
+    .trust .item{flex:1 1 40%;}
+    .trust .item .num{font-size:22px;}
+
+    .section{padding:52px 0;}
+    .sec-title{font-size:24px;}
+
+    .tour-grid{grid-template-columns:1fr;gap:18px;}
+
+    .about{margin:0 20px;padding:32px 22px;border-radius:20px;}
+    .about h2{font-size:22px;}
+    .about-feats{grid-template-columns:1fr;}
+
+    .review-grid{grid-template-columns:1fr;}
+
+    .ctaband{margin:0 20px;padding:36px 22px;border-radius:20px;}
+    .ctaband h2{font-size:21px;}
+    .ctaband .btns{flex-direction:column;align-items:stretch;}
+
+    .foot-grid{grid-template-columns:1fr;gap:28px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="mark">AB</div>
+      <div>
+        <div class="name">all blue</div>
+        <div class="sub">SCUBA &amp; MARINESPORTS CLUB CEBU</div>
+      </div>
+    </div>
+    <input type="checkbox" id="navtoggle" class="navtoggle-input">
+    <div class="nav-links">
+      <a href="#tours">人気のツアー</a>
+      <a href="#about">オールブルーとは</a>
+      <a href="#voice">お客様の声</a>
+      <a href="#">留学生割引</a>
+      <a href="#">よくある質問</a>
+    </div>
+    <div class="nav-cta">
+      <div class="tel">現地から電話<br><b>050-5369-5308</b></div>
+      <div class="btn-line">💬 LINEで予約</div>
+    </div>
+    <label for="navtoggle" class="hamburger" aria-label="メニューを開く">☰</label>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1600&q=75" alt="セブ島のビーチ">
+  <div class="hero-content">
+    <div class="hero-eyebrow">CEBU ISLAND, PHILIPPINES</div>
+    <h1>セブ島に来たら、<br>オールブルー。</h1>
+    <p class="lead">ジンベイザメ・アイランドホッピング・スキューバダイビング。<br>セブ島で一番愉快な、全員日本人スタッフのダイビングショップです。</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#tours">人気ツアーを見る</a>
+      <a class="btn-ghost" href="#">仮予約フォーム</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap quickcat">
+  <div class="quickcat-inner">
+    <div class="cat-card cat-1"><div class="ico">🦈</div><div class="lbl">ジンベイザメ<br>ツアー</div></div>
+    <div class="cat-card cat-2"><div class="ico">🏝️</div><div class="lbl">アイランド<br>ホッピング</div></div>
+    <div class="cat-card cat-3"><div class="ico">🤿</div><div class="lbl">ファン<br>ダイビング</div></div>
+    <div class="cat-card cat-4"><div class="ico">🎓</div><div class="lbl">PADI<br>ライセンス講習</div></div>
+    <div class="cat-card cat-5"><div class="ico">🚤</div><div class="lbl">マリン<br>スポーツ</div></div>
+  </div>
+</div>
+
+<div class="wrap trust">
+  <div class="item"><div class="num">99.6<span style="font-size:16px">%</span></div><div class="cap">お客様満足度</div></div>
+  <div class="item"><div class="num">12,000<span style="font-size:16px">組+</span></div><div class="cap">累計ご案内実績</div></div>
+  <div class="item"><div class="num">100<span style="font-size:16px">%</span></div><div class="cap">日本人スタッフ対応</div></div>
+  <div class="item"><div class="num">PADI</div><div class="cap">正規認定ショップ</div></div>
+</div>
+
+<section class="section" id="tours">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">POPULAR TOURS</div>
+      <h2 class="sec-title">人気のツアー・アクティビティ</h2>
+      <p class="sec-desc">セブ島の海を知り尽くしたスタッフが、あなたにぴったりの1日をご案内します。</p>
+    </div>
+    <div class="tour-grid">
+
+      <div class="tour-card">
+        <div class="tour-photo">
+          <img src="https://images.unsplash.com/photo-1560275619-4662e36fa65c?w=600&q=75" alt="ジンベイザメツアー">
+          <div class="badge">遭遇率No.1</div>
+        </div>
+        <div class="tour-body">
+          <div class="tour-tags">オスロブ ・ 半日〜1日</div>
+          <div class="tour-title">ジンベイザメ・スキューバダイビング体験ツアー</div>
+          <div class="tour-feats">
+            <div>🐋 遭遇率99%の感動体験</div>
+            <div>📸 水中カメラマン同行・写真無料</div>
+            <div>🚐 ホテル無料送迎付き</div>
+          </div>
+          <div class="tour-foot">
+            <div class="price">¥8,500<span>〜/名</span></div>
+            <div class="rating"><span class="stars">★★★★★</span><br><b>4.9</b> (612)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tour-card">
+        <div class="tour-photo">
+          <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=600&q=75" alt="アイランドホッピング">
+          <div class="badge">映え度No.1</div>
+        </div>
+        <div class="tour-body">
+          <div class="tour-tags">ナルスアン島・パンダノン島</div>
+          <div class="tour-title">アイランドホッピング｜離島3島めぐり</div>
+          <div class="tour-feats">
+            <div>🏝️ コバルトブルーの離島を3島制覇</div>
+            <div>🍖 ビーチでBBQランチ付き</div>
+            <div>🤿 サンドバーでシュノーケル</div>
+          </div>
+          <div class="tour-foot">
+            <div class="price">¥6,800<span>〜/名</span></div>
+            <div class="rating"><span class="stars">★★★★★</span><br><b>4.8</b> (487)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tour-card">
+        <div class="tour-photo">
+          <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=600&q=75" alt="ファンダイビング">
+          <div class="badge">上級者向け</div>
+        </div>
+        <div class="tour-body">
+          <div class="tour-tags">セブ島全域・全ダイブポイント</div>
+          <div class="tour-title">ファンダイビング｜セブ島の絶景リーフを巡る</div>
+          <div class="tour-feats">
+            <div>🐠 世界屈指のダイブポイントへ</div>
+            <div>🎒 器材レンタル無料</div>
+            <div>👨‍🏫 日本人インストラクター同行</div>
+          </div>
+          <div class="tour-foot">
+            <div class="price">¥7,200<span>〜/2本</span></div>
+            <div class="rating"><span class="stars">★★★★★</span><br><b>4.9</b> (355)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tour-card">
+        <div class="tour-photo">
+          <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=75" alt="PADIライセンス講習">
+          <div class="badge">留学生割引あり</div>
+        </div>
+        <div class="tour-body">
+          <div class="tour-tags">マクタン島リゾートエリア</div>
+          <div class="tour-title">PADIオープンウォーターライセンス講習</div>
+          <div class="tour-feats">
+            <div>🎓 世界共通の潜水ライセンス取得</div>
+            <div>👨‍🏫 全員日本人インストラクター</div>
+            <div>📖 e-learning対応で自宅学習OK</div>
+          </div>
+          <div class="tour-foot">
+            <div class="price">¥42,000<span>〜/講習</span></div>
+            <div class="rating"><span class="stars">★★★★★</span><br><b>5.0</b> (208)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tour-card">
+        <div class="tour-photo">
+          <img src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=600&q=75" alt="マリンスポーツ">
+          <div class="badge">グループにおすすめ</div>
+        </div>
+        <div class="tour-body">
+          <div class="tour-tags">Vistamarリゾート施設内</div>
+          <div class="tour-title">マリンスポーツ｜バナナボート・ジェットスキー</div>
+          <div class="tour-feats">
+            <div>🚤 バナナボート・パラセーリング・ジェットスキー</div>
+            <div>👨‍👩‍👧‍👦 5人乗りOKで家族旅行にも</div>
+            <div>🕐 午後スタートでゆったり参加</div>
+          </div>
+          <div class="tour-foot">
+            <div class="price">¥4,000<span>〜/名</span></div>
+            <div class="rating"><span class="stars">★★★★★</span><br><b>4.7</b> (298)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tour-card">
+        <div class="tour-photo">
+          <img src="https://images.unsplash.com/photo-1573790387438-4da905039392?w=600&q=75" alt="体験ダイビング">
+          <div class="badge">初心者歓迎</div>
+        </div>
+        <div class="tour-body">
+          <div class="tour-tags">マクタン島近海</div>
+          <div class="tour-title">体験ダイビング｜泳げなくても大丈夫</div>
+          <div class="tour-feats">
+            <div>🔰 泳げない・初めてでも安心</div>
+            <div>🎒 レンタル器材すべて込み</div>
+            <div>📷 水中写真データ無料プレゼント</div>
+          </div>
+          <div class="tour-foot">
+            <div class="price">¥5,500<span>〜/名</span></div>
+            <div class="rating"><span class="stars">★★★★★</span><br><b>4.8</b> (441)</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="about">
+    <div>
+      <div class="sec-tag" style="color:#8fd4c9">ABOUT ALL BLUE</div>
+      <h2>セブ島で一番愉快な、<br>日系ダイビングショップ。</h2>
+      <p>マクタン島のリゾートエリアを拠点に、初めてのダイビングから本格ライセンス講習まで。日本人スタッフが安全第一で、あなたのセブ島滞在を全力でサポートします。</p>
+      <div class="about-feats">
+        <div class="f"><b>👨‍✈️ 全員日本人スタッフ</b>言葉の心配なく安心</div>
+        <div class="f"><b>🚐 ホテル無料送迎</b>マクタン島内どこでも送迎可</div>
+        <div class="f"><b>🎒 レンタル器材無料</b>手ぶらで参加OK</div>
+        <div class="f"><b>💬 24時間LINE対応</b>現地から気軽に相談OK</div>
+      </div>
+    </div>
+    <div class="about-photo">
+      <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=75" alt="ダイビングの様子">
+    </div>
+  </div>
+</section>
+
+<section class="section" id="voice">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">VOICE</div>
+      <h2 class="sec-title">お客様の声</h2>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">初めてのダイビングでしたが、スタッフさんが優しく丁寧に教えてくれて安心でした。ジンベイザメと泳げて一生の思い出になりました！</p>
+        <div class="review-who"><div class="avatar">M.K</div><div><div class="name">M.Kさん</div><div class="trip">夫婦旅行・体験ダイビング</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">送迎から丁寧で、写真もたくさん撮ってもらえました。日本語で全部説明してくれるので子供連れでも安心して参加できました。</p>
+        <div class="review-who"><div class="avatar">Y.T</div><div><div class="name">Y.Tさん</div><div class="trip">家族旅行・アイランドホッピング</div></div></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">留学中にライセンス講習を受講。e-learningも分かりやすく、スムーズにOWライセンスを取得できました。ありがとうございました！</p>
+        <div class="review-who"><div class="avatar">R.S</div><div><div class="name">R.Sさん</div><div class="trip">語学留学・PADI講習</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ctaband">
+  <h2>🎉 ご予約・お問い合わせはこちらから</h2>
+  <p>セブ島旅行やツアーに関するご質問など、お気軽にご連絡ください。</p>
+  <div class="btns">
+    <div class="btn-line" style="padding:15px 30px;border-radius:30px;font-weight:700;">💬 LINEでかんたん予約（24時間受付）</div>
+    <div class="btn-web">🌐 Webで予約する</div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <div class="brand" style="margin-bottom:14px;"><div class="mark">AB</div><div><div class="name" style="color:#fff">all blue</div><div class="sub" style="color:#8fa6b8">SCUBA &amp; MARINESPORTS CLUB</div></div></div>
+      <p style="font-size:13px;color:#aec3d4;max-width:280px;">マクタン島リゾートエリア発、セブ島全域のダイビング・マリンアクティビティを日本人スタッフがご案内します。</p>
+    </div>
+    <div>
+      <h4>ツアー</h4>
+      <a href="#">ジンベイザメツアー</a>
+      <a href="#">アイランドホッピング</a>
+      <a href="#">ファンダイビング</a>
+      <a href="#">マリンスポーツ</a>
+    </div>
+    <div>
+      <h4>ショップについて</h4>
+      <a href="#">オールブルーとは</a>
+      <a href="#">留学生割引</a>
+      <a href="#">よくある質問</a>
+      <a href="#">お客様の声</a>
+    </div>
+    <div>
+      <h4>お問い合わせ</h4>
+      <a href="#">LINEで予約</a>
+      <a href="#">お申込みフォーム</a>
+      <a href="#">050-5369-5308</a>
+    </div>
+  </div>
+  <div class="foot-bottom">© All Blue Cebu — Scuba &amp; Marinesports Club. 本ページは実験的なデザイン案（モックアップ）です。</div>
+</footer>
+
+</body>
+</html>
