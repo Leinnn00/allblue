@@ -48,14 +48,14 @@
   /* hero */
   .hero{position:relative;height:640px;overflow:hidden;}
   .hero img{width:100%;height:100%;object-fit:cover;}
-  .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,30,50,.85) 0%,rgba(10,30,50,.25) 45%,rgba(10,30,50,.35) 100%);}
-  .hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;padding:0 20px;}
-  .hero-eyebrow{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.4);padding:6px 16px;border-radius:20px;font-size:13px;letter-spacing:1px;margin-bottom:20px;backdrop-filter:blur(2px);}
-  .hero h1{font-size:46px;line-height:1.4;text-shadow:0 2px 12px rgba(0,0,0,.3);}
-  .hero p.lead{margin-top:16px;font-size:16.5px;color:#eaf2f8;max-width:560px;}
+  .hero:after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(10,30,50,.85) 0%,rgba(10,30,50,.25) 45%,rgba(10,30,50,.35) 100%);}
+  .hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;padding:0 20px;z-index:2;}
+  .hero-eyebrow{background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.55);padding:6px 16px;border-radius:20px;font-size:13px;letter-spacing:1px;margin-bottom:20px;backdrop-filter:blur(3px);}
+  .hero h1{font-size:46px;line-height:1.4;text-shadow:0 2px 6px rgba(0,0,0,.55),0 8px 28px rgba(0,0,0,.5);}
+  .hero p.lead{margin-top:16px;font-size:16.5px;color:#fff;max-width:560px;text-shadow:0 2px 10px rgba(0,0,0,.55);}
   .hero-btns{display:flex;gap:14px;margin-top:32px;}
-  .btn-primary{background:var(--coral);color:#fff;font-weight:700;padding:15px 30px;border-radius:30px;font-size:15px;box-shadow:0 8px 20px rgba(239,91,61,.4);}
-  .btn-ghost{border:1.5px solid #fff;color:#fff;font-weight:700;padding:15px 30px;border-radius:30px;font-size:15px;}
+  .btn-primary{background:var(--coral);color:#fff;font-weight:700;padding:15px 30px;border-radius:30px;font-size:15px;box-shadow:0 10px 26px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15);}
+  .btn-ghost{border:1.5px solid #fff;background:rgba(0,0,0,.3);backdrop-filter:blur(3px);color:#fff;font-weight:700;padding:15px 30px;border-radius:30px;font-size:15px;box-shadow:0 10px 26px rgba(0,0,0,.35);}
 
   /* category quick nav - overlaps hero bottom */
   .quickcat{position:relative;margin-top:-56px;z-index:10;}
@@ -178,7 +178,16 @@
     .section{padding:52px 0;}
     .sec-title{font-size:24px;}
 
-    .tour-grid{grid-template-columns:1fr;gap:18px;}
+    .tour-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+    .tour-photo{height:100px;}
+    .tour-photo .badge{font-size:10px;padding:4px 9px;top:8px;left:8px;}
+    .tour-body{padding:12px 12px 14px;}
+    .tour-tags{font-size:10.5px;margin-bottom:5px;}
+    .tour-title{font-size:13px;min-height:0;line-height:1.35;}
+    .tour-feats{font-size:11px;gap:3px;margin-top:8px;}
+    .tour-foot{margin-top:10px;padding-top:10px;flex-direction:column;align-items:flex-start;gap:4px;}
+    .price{font-size:17px;}
+    .rating{text-align:left;font-size:11px;}
 
     .about{margin:0 20px;padding:32px 22px;border-radius:20px;}
     .about h2{font-size:22px;}
@@ -447,26 +456,4 @@
     <div>
       <h4>ツアー</h4>
       <a href="#">ジンベイザメツアー</a>
-      <a href="#">アイランドホッピング</a>
-      <a href="#">ファンダイビング</a>
-      <a href="#">マリンスポーツ</a>
-    </div>
-    <div>
-      <h4>ショップについて</h4>
-      <a href="#">オールブルーとは</a>
-      <a href="#">留学生割引</a>
-      <a href="#">よくある質問</a>
-      <a href="#">お客様の声</a>
-    </div>
-    <div>
-      <h4>お問い合わせ</h4>
-      <a href="#">LINEで予約</a>
-      <a href="#">お申込みフォーム</a>
-      <a href="#">050-5369-5308</a>
-    </div>
-  </div>
-  <div class="foot-bottom">© All Blue Cebu — Scuba &amp; Marinesports Club. 本ページは実験的なデザイン案（モックアップ）です。</div>
-</footer>
-
-</body>
-</html>
+      <a href="#">アイランドホッピン�
