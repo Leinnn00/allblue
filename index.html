@@ -59,8 +59,8 @@
 
   /* category quick nav - overlaps hero bottom */
   .quickcat{position:relative;margin-top:-56px;z-index:10;}
-  .quickcat-inner{background:#fff;border-radius:22px;box-shadow:0 20px 50px rgba(15,40,70,.15);padding:26px;display:grid;grid-template-columns:repeat(6,1fr);gap:16px;}
-  .cat-card{border-radius:14px;padding:18px 10px;text-align:center;cursor:pointer;transition:transform .15s;}
+  .quickcat-inner{background:#fff;border-radius:22px;box-shadow:0 20px 50px rgba(15,40,70,.15);padding:26px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px;}
+  .cat-card{flex:0 1 18%;min-width:150px;border-radius:14px;padding:18px 10px;text-align:center;cursor:pointer;transition:transform .15s;}
   .cat-card:hover{transform:translateY(-4px);}
   .cat-card .ico{font-size:30px;margin-bottom:8px;}
   .cat-card .lbl{font-size:13.5px;font-weight:700;}
@@ -70,6 +70,9 @@
   .cat-4{background:#fdeaea;color:#a32d2d;}
   .cat-5{background:#f1eefd;color:#4c3b9d;}
   .cat-fd{background:#fff4d6;color:#8a6d00;}
+  .cat-6{background:#e0f7fa;color:#0a6a75;}
+  .cat-7{background:#eef0fd;color:#3d3a9e;}
+  .cat-8{background:#fdece0;color:#a15a1f;}
 
   /* trust bar */
   .trust{display:flex;justify-content:center;max-width:1000px;margin:64px auto 0;padding:0 24px;flex-wrap:wrap;gap:64px;text-align:center;}
@@ -145,7 +148,7 @@
     .about-photo{height:260px;order:-1;}
     .tour-grid{grid-template-columns:repeat(2,1fr);}
     .review-grid{grid-template-columns:1fr 1fr;}
-    .quickcat-inner{grid-template-columns:repeat(3,1fr);}
+    .cat-card{flex-basis:29%;}
   }
 
   @media (max-width:860px){
@@ -168,8 +171,8 @@
     .btn-primary,.btn-ghost{width:100%;text-align:center;padding:14px 20px;}
 
     .quickcat{margin-top:-40px;}
-    .quickcat-inner{grid-template-columns:repeat(3,1fr);gap:10px;padding:16px;border-radius:16px;}
-    .cat-card{padding:12px 4px;}
+    .quickcat-inner{gap:10px;padding:16px;border-radius:16px;}
+    .cat-card{flex-basis:29%;min-width:0;padding:12px 4px;}
     .cat-card .ico{font-size:22px;margin-bottom:6px;}
     .cat-card .lbl{font-size:11.5px;}
 
@@ -246,12 +249,15 @@
 
 <div class="wrap quickcat">
   <div class="quickcat-inner">
-    <div class="cat-card cat-1"><div class="ico">🦈</div><div class="lbl">ジンベイザメ<br>ツアー</div></div>
+    <div class="cat-card cat-1"><div class="ico">🐋</div><div class="lbl">ジンベイザメ<br>ツアー</div></div>
     <div class="cat-card cat-2"><div class="ico">🏝️</div><div class="lbl">アイランド<br>ホッピング</div></div>
     <div class="cat-card cat-3"><div class="ico">🤿</div><div class="lbl">ファン<br>ダイビング</div></div>
     <div class="cat-card cat-4"><div class="ico">🎓</div><div class="lbl">PADI or SSI<br>選べるライセンス講習</div></div>
     <div class="cat-card cat-fd"><div class="ico">🐬</div><div class="lbl">フリーダイビング<br>ライセンス講習</div></div>
-    <div class="cat-card cat-5"><div class="ico">🚤</div><div class="lbl">マリン<br>スポーツ</div></div>
+    <div class="cat-card cat-5"><div class="ico">🪂</div><div class="lbl">マリン<br>スポーツ</div></div>
+    <div class="cat-card cat-6"><div class="ico">🐠</div><div class="lbl">スノーケル<br>ツアー</div></div>
+    <div class="cat-card cat-7"><div class="ico">🫧</div><div class="lbl">素潜り<br>ツアー</div></div>
+    <div class="cat-card cat-8"><div class="ico">⛵</div><div class="lbl">クルージング<br>ツアー</div></div>
   </div>
 </div>
 
