@@ -37,6 +37,7 @@
   #tourName{color:var(--coral-dark);font-weight:700;}
 
   .method{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:24px;text-align:left;}
+  a.method{cursor:pointer;}
   .method .t{font-weight:700;font-size:15px;}
   .method .d{font-size:12.5px;color:var(--muted);margin-top:2px;}
   .method .go{background:var(--coral);color:#fff;font-weight:700;font-size:13px;padding:9px 16px;border-radius:20px;flex-shrink:0;}
@@ -63,13 +64,13 @@
     <p>お申込みのツアー：<span id="tourName">ツアーを選択してください</span></p>
     <p>本ページは実験的なモックアップのため、実際の予約フォームは接続されていません。以下のいずれかの方法でお問い合わせください。</p>
 
-    <div class="method line">
+    <a class="method line" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">
       <div>
         <div class="t">💬 LINEで予約</div>
         <div class="d">24時間受付・一番早いお問い合わせ方法です</div>
       </div>
       <div class="go">開く</div>
-    </div>
+    </a>
     <div class="method">
       <div>
         <div class="t">🌐 Webフォームで予約</div>
