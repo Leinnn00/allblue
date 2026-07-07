@@ -60,7 +60,7 @@
   /* category quick nav - overlaps hero bottom */
   .quickcat{position:relative;margin-top:-56px;z-index:10;}
   .quickcat-inner{background:#fff;border-radius:22px;box-shadow:0 20px 50px rgba(15,40,70,.15);padding:26px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px;}
-  .cat-card{flex:0 1 18%;min-width:150px;border-radius:14px;padding:18px 10px;text-align:center;cursor:pointer;transition:transform .15s;}
+  .cat-card{flex:0 1 18%;min-width:150px;border-radius:14px;padding:18px 10px;text-align:center;cursor:pointer;transition:transform .15s;display:block;}
   .cat-card:hover{transform:translateY(-4px);}
   .cat-card .ico{font-size:30px;margin-bottom:8px;}
   .cat-card .lbl{font-size:13.5px;font-weight:700;}
@@ -249,8 +249,8 @@
 
 <div class="wrap quickcat">
   <div class="quickcat-inner">
-    <div class="cat-card cat-1"><div class="ico">🐋</div><div class="lbl">ジンベイザメ<br>ツアー</div></div>
-    <div class="cat-card cat-2"><div class="ico">🏝️</div><div class="lbl">アイランド<br>ホッピング</div></div>
+    <a class="cat-card cat-1" href="tours/jinbe.html"><div class="ico">🐋</div><div class="lbl">ジンベイザメ<br>ツアー</div></a>
+    <a class="cat-card cat-2" href="tours/island_hopping.html"><div class="ico">🏝️</div><div class="lbl">アイランド<br>ホッピング</div></a>
     <div class="cat-card cat-3"><div class="ico">🤿</div><div class="lbl">ファン<br>ダイビング</div></div>
     <div class="cat-card cat-4"><div class="ico">🎓</div><div class="lbl">PADI or SSI<br>選べるライセンス講習</div></div>
     <div class="cat-card cat-fd"><div class="ico">🐬</div><div class="lbl">フリーダイビング<br>ライセンス講習</div></div>
@@ -277,14 +277,14 @@
     </div>
     <div class="tour-grid">
 
-      <div class="tour-card">
+      <a class="tour-card" href="tours/jinbe.html">
         <div class="tour-photo">
           <img src="photos/jinbe.jpg" alt="ジンベイザメツアー">
           <div class="badge">遭遇率No.1</div>
         </div>
         <div class="tour-body">
           <div class="tour-tags">オスロブ ・ 半日〜1日</div>
-          <div class="tour-title">ジンベイザメ・スキューバダイビング体験ツアー</div>
+          <div class="tour-title">ジンベイザメ・カワサン滝ツアー</div>
           <div class="tour-feats">
             <div>🐋 遭遇率99%の感動体験</div>
             <div>📸 水中カメラマン同行・写真無料</div>
@@ -295,9 +295,9 @@
             <div class="rating"><span class="stars">★★★★★</span><br><b>4.9</b> (612)</div>
           </div>
         </div>
-      </div>
+      </a>
 
-      <div class="tour-card">
+      <a class="tour-card" href="tours/island_hopping.html">
         <div class="tour-photo">
           <img src="photos/island_hopping.jpg" alt="アイランドホッピング">
           <div class="badge">映え度No.1</div>
@@ -315,7 +315,7 @@
             <div class="rating"><span class="stars">★★★★★</span><br><b>4.8</b> (487)</div>
           </div>
         </div>
-      </div>
+      </a>
 
       <div class="tour-card">
         <div class="tour-photo">
@@ -482,7 +482,7 @@
       <a href="#">050-5369-5308</a>
     </div>
   </div>
-  <div class="foot-bottom">© All Blue Cebu — Scuba &amp; Marinesports Club. 本ページは実験的なデザイン案（モックアップ）です。</div>
+  <div class="foot-bottom">© All Blue Cebu — Scuba &amp; Marinesports Club. 本ページは実験的なデザイン案（モックアップ）です。正式なものではありません。</div>
 </footer>
 
 </body>

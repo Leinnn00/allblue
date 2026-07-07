@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>アイランドホッピング｜離島3島めぐり | All Blue Cebu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0d2b4e;
+    --navy-2:#123a66;
+    --ocean:#1c74b3;
+    --teal:#0e9488;
+    --coral:#ef5b3d;
+    --coral-dark:#c93f24;
+    --sand:#fbf7ef;
+    --ink:#16242f;
+    --muted:#66727c;
+    --line:#e7e2d6;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Zen Kaku Gothic New',sans-serif;color:var(--ink);background:var(--sand);line-height:1.7;}
+  h1,h2,h3{font-weight:700;margin:0;}
+  p{margin:0;}
+  img{display:block;max-width:100%;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1180px;margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand .mark{width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;font-size:15px;}
+  .brand .name{font-weight:700;font-size:19px;color:var(--navy);letter-spacing:.3px;}
+  .brand .sub{font-size:10px;color:var(--muted);letter-spacing:1.5px;}
+  .nav-links{display:flex;gap:24px;font-size:14px;font-weight:500;}
+  .nav-links a:hover{color:var(--coral);}
+  .btn-line{background:#06C755;color:#fff;font-weight:700;font-size:14px;padding:10px 20px;border-radius:30px;display:flex;align-items:center;gap:6px;}
+
+  .breadcrumb{font-size:13px;color:var(--muted);padding:18px 0;}
+  .breadcrumb a:hover{color:var(--coral);}
+
+  .detail-hero{position:relative;border-radius:22px;overflow:hidden;height:380px;}
+  .detail-hero img{width:100%;height:100%;object-fit:cover;}
+  .detail-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,20,35,.75) 0%,rgba(8,20,35,.1) 55%);}
+  .detail-hero-content{position:absolute;z-index:1;left:0;right:0;bottom:0;padding:32px;color:#fff;}
+  .badge-row{display:flex;gap:8px;margin-bottom:12px;}
+  .badge{background:var(--coral);color:#fff;font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;box-shadow:0 4px 12px rgba(0,0,0,.3);}
+  .detail-hero h1{font-size:30px;text-shadow:0 2px 6px rgba(0,0,0,.6),0 8px 24px rgba(0,0,0,.55);}
+
+  .quickfacts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:28px 0;}
+  .qf{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center;}
+  .qf .label{font-size:12px;color:var(--muted);}
+  .qf .value{font-size:17px;font-weight:700;color:var(--navy);margin-top:4px;}
+
+  .layout{display:grid;grid-template-columns:2fr 1fr;gap:40px;align-items:start;margin:36px 0 60px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;margin-bottom:24px;}
+  .card h2{font-size:20px;color:var(--navy);margin-bottom:14px;}
+  .card p{color:var(--ink);font-size:14.5px;}
+  .tags-inline{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+  .tag-pill{background:var(--sand);border:1px solid var(--line);font-size:12.5px;padding:6px 12px;border-radius:20px;color:var(--muted);}
+
+  .timeline{margin-top:10px;}
+  .tl-item{display:flex;gap:16px;padding:12px 0;border-top:1px dashed var(--line);}
+  .tl-item:first-child{border-top:none;}
+  .tl-time{width:64px;flex-shrink:0;font-weight:700;color:var(--coral-dark);font-size:14px;}
+  .tl-text{font-size:14px;color:var(--ink);}
+
+  .incl-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .incl-col h3{font-size:14px;margin-bottom:10px;}
+  .incl-col.yes h3{color:#0b6e5c;}
+  .incl-col.no h3{color:#a32d2d;}
+  .incl-col div{font-size:13.5px;color:var(--ink);margin-bottom:8px;}
+
+  .price-card{position:sticky;top:90px;}
+  .price-row{display:flex;justify-content:space-between;align-items:baseline;padding:10px 0;border-top:1px dashed var(--line);font-size:14px;}
+  .price-row:first-of-type{border-top:none;}
+  .price-row .amt{font-size:18px;font-weight:700;color:var(--coral-dark);}
+  .rating-line{display:flex;align-items:center;gap:8px;margin-bottom:16px;font-size:13.5px;color:var(--muted);}
+  .rating-line .stars{color:#f5a623;font-size:15px;}
+  .cta-book{display:block;text-align:center;background:var(--coral);color:#fff;font-weight:700;padding:15px;border-radius:30px;margin-top:18px;font-size:15px;box-shadow:0 10px 24px rgba(239,91,61,.35);}
+  .cta-line{display:flex;align-items:center;justify-content:center;gap:8px;background:#06C755;color:#fff;font-weight:700;padding:14px;border-radius:30px;margin-top:10px;font-size:14.5px;}
+
+  .faq-item{border-top:1px dashed var(--line);padding:14px 0;}
+  .faq-item:first-child{border-top:none;}
+  .faq-q{font-weight:700;font-size:14px;color:var(--navy);margin-bottom:6px;}
+  .faq-a{font-size:13.5px;color:var(--muted);}
+
+  footer{background:var(--navy);color:#c9d9e6;padding:40px 0 24px;margin-top:60px;text-align:center;font-size:13px;}
+  footer a{color:#aec3d4;}
+
+  @media (max-width:900px){
+    .layout{grid-template-columns:1fr;}
+    .quickfacts{grid-template-columns:repeat(2,1fr);}
+    .incl-grid{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+    .price-card{position:static;}
+    .detail-hero{height:280px;}
+    .detail-hero h1{font-size:22px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="../index.html">
+      <div class="mark">AB</div>
+      <div>
+        <div class="name">all blue</div>
+        <div class="sub">SCUBA &amp; MARINESPORTS CLUB CEBU</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#tours">人気のツアー</a>
+      <a href="../index.html#about">オールブルーとは</a>
+      <a href="../index.html#voice">お客様の声</a>
+    </div>
+    <div class="btn-line">💬 LINEで予約</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="breadcrumb">
+    <a href="../index.html">トップ</a> ／ <a href="../index.html#tours">ツアー一覧</a> ／ アイランドホッピング
+  </div>
+
+  <div class="detail-hero">
+    <img src="../photos/island_hopping.jpg" alt="アイランドホッピング">
+    <div class="detail-hero-content">
+      <div class="badge-row"><div class="badge">映え度No.1</div></div>
+      <h1>アイランドホッピング｜離島3島めぐり</h1>
+    </div>
+  </div>
+
+  <div class="quickfacts">
+    <div class="qf"><div class="label">所要時間</div><div class="value">7時間(9:00〜16:00)</div></div>
+    <div class="qf"><div class="label">集合場所</div><div class="value">お泊りのホテル</div></div>
+    <div class="qf"><div class="label">対象年齢</div><div class="value">制限なし</div></div>
+    <div class="qf"><div class="label">催行人数</div><div class="value">1名〜</div></div>
+  </div>
+
+  <div class="layout">
+    <div>
+      <div class="card">
+        <h2>ツアー概要</h2>
+        <p>コバルトブルーの海に浮かぶナルスアン島・パンダノン島・ヒルトゥガン島の離島3島を1日で巡る、一番満足度の高い欲張りツアー。透明度抜群の海洋保護区でのシュノーケリングはもちろん、上陸してのBBQランチやフリードリンクも付いて大満足の内容です。日本人ガイドが同行するので、島の魅力を存分に楽しんでいただけます。</p>
+        <div class="tags-inline">
+          <div class="tag-pill">🏝️ 離島3島めぐり</div>
+          <div class="tag-pill">🍖 BBQランチ付き</div>
+          <div class="tag-pill">🤿 海洋保護区でスノーケル</div>
+          <div class="tag-pill">👨‍🏫 日本人ガイド同行</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>こんな方におすすめ</h2>
+        <p>・SNS映えする離島の絶景を残したい方<br>
+        ・友人や家族、グループでリゾート気分を味わいたい方<br>
+        ・シュノーケリングもBBQも欲張りに楽しみたい方</p>
+      </div>
+
+      <div class="card">
+        <h2>タイムスケジュール</h2>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-time">08:30</div><div class="tl-text">ホテルお迎え(マクタン島内)</div></div>
+          <div class="tl-item"><div class="tl-time">09:00</div><div class="tl-text">出港</div></div>
+          <div class="tl-item"><div class="tl-time">09:40</div><div class="tl-text">ヒルトゥガン島・シュノーケリング or ダイビング</div></div>
+          <div class="tl-item"><div class="tl-time">10:30</div><div class="tl-text">ヒルトゥガン島からナルスアン島に出航</div></div>
+          <div class="tl-item"><div class="tl-time">11:00</div><div class="tl-text">ナルスアン島散策</div></div>
+          <div class="tl-item"><div class="tl-time">12:00</div><div class="tl-text">パンダノン島上陸、BBQランチ(フルーツ盛り合わせ付き)</div></div>
+          <div class="tl-item"><div class="tl-time">14:00</div><div class="tl-text">パンダノン島を出港</div></div>
+          <div class="tl-item"><div class="tl-time">15:00</div><div class="tl-text">ショップに帰港・解散</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>含まれるもの・含まれないもの</h2>
+        <div class="incl-grid">
+          <div class="incl-col yes">
+            <h3>✓ 含まれるもの</h3>
+            <div>ホテル往復送迎(マクタン島内)</div>
+            <div>シュノーケリング器材レンタル</div>
+            <div>BBQランチ(フルーツ盛り合わせ付き)</div>
+            <div>フリードリンク(お菓子付き)</div>
+            <div>日本人ガイド同行</div>
+            <div>入場料・保険料</div>
+          </div>
+          <div class="incl-col no">
+            <h3>✕ 含まれないもの</h3>
+            <div>個人的な飲食代</div>
+            <div>お酒(+500ペソで飲み放題オプションあり)</div>
+            <div>ダイビング・マリンスポーツオプション</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>よくある質問</h2>
+        <div class="faq-item">
+          <div class="faq-q">Q. ダイビングやマリンスポーツも追加できますか？</div>
+          <div class="faq-a">A. はい。ファンダイビング(+3,500ペソ・レンタル込み、追加ダイブ不可)や、パラセーリング・バナナボートなどのマリンスポーツオプションを追加いただけます。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Q. お酒は飲めますか？</div>
+          <div class="faq-a">A. +500ペソでお酒を含むフリードリンク(飲み放題)にアップグレードできます。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Q. 子供も参加できますか？</div>
+          <div class="faq-a">A. はい、お子様も参加いただけます。子供料金でのご案内となります。</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card price-card">
+        <div class="rating-line"><span class="stars">★★★★★</span> <b>4.8</b>（487件のレビュー）</div>
+        <div class="price-row"><span>大人</span><span class="amt">¥6,800〜</span></div>
+        <div class="price-row"><span>子供</span><span class="amt">¥4,800〜</span></div>
+        <a class="cta-book" href="../apply.html?tour=island_hopping">この内容で申し込む</a>
+        <div class="cta-line">💬 LINEで質問する</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    © All Blue Cebu — Scuba &amp; Marinesports Club. 本ページは実験的なデザイン案（モックアップ）です。正式なものではありません。<br>
+    <a href="../index.html">トップページに戻る</a>
+  </div>
+</footer>
+
+</body>
+</html>
