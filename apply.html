@@ -62,6 +62,9 @@
   <div class="box">
     <h1>お申込み・お問い合わせ</h1>
     <p>お申込みのツアー：<span id="tourName">ツアーを選択してください</span></p>
+    <div id="summaryBox" style="display:none;margin-top:12px;background:#fbf7ef;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13.5px;color:var(--ink);text-align:left;">
+      <b style="color:var(--navy)">選択内容</b><br><span id="summary"></span>
+    </div>
     <p>本ページは実験的なモックアップのため、実際の予約フォームは接続されていません。以下のいずれかの方法でお問い合わせください。</p>
 
     <a class="method line" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">
@@ -95,14 +98,32 @@
   </div>
 </footer>
 
+<script src="plans.js"></script>
 <script>
   var params = new URLSearchParams(window.location.search);
   var tourNames = {
-    jinbe: "ジンベイザメ・カワサン滝ツアー",
+    jinbe: "ジンベエザメ・ツマログの滝ツアー",
     island_hopping: "アイランドホッピング｜離島3島めぐり"
   };
   var tour = params.get("tour");
-  if (tour && tourNames[tour]) {
+  var plan = (typeof PLANS !== "undefined" && tour) ? PLANS[tour] : null;
+  if (plan) {
+    document.getElementById("tourName").textContent = plan.title;
+    var adult = params.get("adult"), child = params.get("child"), total = params.get("total");
+    if (adult) {
+      var optIds = (params.get("opts") || "").split(",").filter(Boolean);
+      var optNames = optIds.map(function (oid) {
+        var o = (plan.options || []).filter(function (x) { return x.id === oid; })[0];
+        return o ? o.name : oid;
+      });
+      var txt = (plan.unit === "台" ? "台数" : "大人") + adult + plan.unit;
+      if (child && child !== "0") txt += " / 子供" + child + "名";
+      if (optNames.length) txt += " / オプション:" + optNames.join("、");
+      if (total) txt += " / 合計(目安) ¥" + Number(total).toLocaleString("ja-JP");
+      document.getElementById("summary").textContent = txt;
+      document.getElementById("summaryBox").style.display = "block";
+    }
+  } else if (tour && tourNames[tour]) {
     document.getElementById("tourName").textContent = tourNames[tour];
   }
 </script>

@@ -104,6 +104,43 @@
   .rating b{color:var(--ink);}
   .stars{color:#f5a623;}
 
+  /* strengths */
+  .strengths{margin-top:-56px;position:relative;z-index:10;}
+  .strength-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;background:#fff;border-radius:22px;box-shadow:0 20px 50px rgba(15,40,70,.15);padding:28px;}
+  .strength{text-align:center;padding:8px 10px;}
+  .strength .ico{font-size:34px;}
+  .strength .big{font-family:'Poppins',sans-serif;font-size:28px;font-weight:700;color:var(--navy);line-height:1.2;margin-top:6px;}
+  .strength .big small{font-size:14px;}
+  .strength h3{font-size:15px;color:var(--navy);margin-top:6px;}
+  .strength p{font-size:12.5px;color:var(--muted);margin-top:6px;}
+  .intro{max-width:760px;margin:56px auto 0;text-align:center;padding:0 24px;}
+  .intro h2{font-size:26px;color:var(--navy);line-height:1.5;}
+  .intro p{margin-top:14px;color:var(--ink);font-size:15px;}
+
+  /* purpose menu */
+  .purpose-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .purpose{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;transition:box-shadow .2s,transform .2s;}
+  .purpose:hover{box-shadow:0 14px 30px rgba(15,40,70,.12);transform:translateY(-3px);}
+  .purpose .ico{font-size:34px;flex-shrink:0;}
+  .purpose .want{font-size:15.5px;font-weight:700;color:var(--navy);line-height:1.4;}
+  .purpose .go{font-size:12.5px;color:var(--coral-dark);font-weight:700;margin-top:3px;}
+
+  /* ranking */
+  .rank-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .rank-card{position:relative;}
+  .rank-no{position:absolute;z-index:2;top:-12px;left:-6px;width:46px;height:46px;border-radius:50%;background:#f5a623;color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 14px rgba(0,0,0,.25);}
+  .rank-no.r2{background:#98a4ad;}
+  .rank-no.r3{background:#b87333;}
+  .rank-card .tour-card{display:block;height:100%;}
+
+  /* staff */
+  .staff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .staff-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;text-align:center;}
+  .staff-photo{width:96px;height:96px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:700;margin:0 auto 14px;}
+  .staff-card .role{font-size:12px;color:var(--ocean);font-weight:700;}
+  .staff-card .nm{font-size:17px;font-weight:700;color:var(--navy);margin-top:2px;}
+  .staff-card p{font-size:13px;color:var(--muted);margin-top:10px;text-align:left;}
+
   /* about band */
   .about{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;border-radius:28px;margin:0 24px;padding:64px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;max-width:1132px;margin-left:auto;margin-right:auto;}
   .about-photo{border-radius:18px;overflow:hidden;height:360px;}
@@ -170,6 +207,18 @@
     .hero-btns{flex-direction:column;width:100%;max-width:280px;}
     .btn-primary,.btn-ghost{width:100%;text-align:center;padding:14px 20px;}
 
+    .strengths{margin-top:-40px;}
+    .strength-grid{grid-template-columns:1fr 1fr;padding:16px;gap:8px;border-radius:16px;}
+    .strength .big{font-size:22px;}
+    .strength p{font-size:11.5px;}
+    .intro{margin-top:40px;}
+    .intro h2{font-size:20px;}
+    .rank-grid,.staff-grid{grid-template-columns:1fr;}
+    .purpose-grid{grid-template-columns:1fr 1fr;gap:10px;}
+    .purpose{flex-direction:column;text-align:center;padding:14px 8px;gap:6px;}
+    .purpose .ico{font-size:28px;}
+    .purpose .want{font-size:13px;}
+    .purpose .go{font-size:11.5px;}
     .quickcat{margin-top:-40px;}
     .quickcat-inner{gap:10px;padding:16px;border-radius:16px;}
     .cat-card{flex-basis:29%;min-width:0;padding:12px 4px;}
@@ -221,7 +270,9 @@
     </div>
     <input type="checkbox" id="navtoggle" class="navtoggle-input">
     <div class="nav-links">
-      <a href="#tours">人気のツアー</a>
+      <a href="#ranking">おすすめ</a>
+      <a href="#tours">ツアー一覧</a>
+      <a href="#staff">スタッフ</a>
       <a href="#about">オールブルーとは</a>
       <a href="#voice">お客様の声</a>
       <a href="#">留学生割引</a>
@@ -239,52 +290,109 @@
   <div class="hero-content">
     <div class="hero-eyebrow">CEBU ISLAND, PHILIPPINES</div>
     <h1>セブ島に来たら、<br>オールブルー。</h1>
-    <p class="lead">ジンベイザメ・アイランドホッピング・スキューバダイビング。<br>セブ島で一番愉快な、全員日本人スタッフのダイビングショップです。</p>
+    <p class="lead">全ツアー、プロの日本人スタッフが催行。催行実績11年。<br>セブ島で一番愉快な、安心と笑顔のダイビングショップです。</p>
     <div class="hero-btns">
-      <a class="btn-primary" href="#tours">人気ツアーを見る</a>
+      <a class="btn-primary" href="#ranking">おすすめツアーを見る</a>
       <a class="btn-ghost" href="#">仮予約フォーム</a>
     </div>
   </div>
 </section>
 
-<div class="wrap quickcat">
-  <div class="quickcat-inner">
-    <a class="cat-card cat-1" href="tours/jinbe.html"><div class="ico">🐋</div><div class="lbl">ジンベイザメ<br>ツアー</div></a>
-    <a class="cat-card cat-2" href="tours/island_hopping.html"><div class="ico">🏝️</div><div class="lbl">アイランド<br>ホッピング</div></a>
-    <div class="cat-card cat-3"><div class="ico">🤿</div><div class="lbl">ファン<br>ダイビング</div></div>
-    <div class="cat-card cat-4"><div class="ico">🎓</div><div class="lbl">PADI or SSI<br>選べるライセンス講習</div></div>
-    <div class="cat-card cat-fd"><div class="ico">🐬</div><div class="lbl">フリーダイビング<br>ライセンス講習</div></div>
-    <div class="cat-card cat-5"><div class="ico">🪂</div><div class="lbl">マリン<br>スポーツ</div></div>
-    <div class="cat-card cat-6"><div class="ico">🐠</div><div class="lbl">スノーケル<br>ツアー</div></div>
-    <div class="cat-card cat-7"><div class="ico">🫧</div><div class="lbl">素潜り<br>ツアー</div></div>
-    <div class="cat-card cat-8"><div class="ico">⛵</div><div class="lbl">クルージング<br>ツアー</div></div>
+<div class="wrap strengths">
+  <div class="strength-grid">
+    <div class="strength"><div class="ico">🎖️</div><h3>全ツアー、プロの日本人が催行</h3><p>インストラクターは全員日本人のプロ。言葉の不安なく楽しめます。</p></div>
+    <div class="strength"><div class="big">11<small>年</small></div><h3>催行実績</h3><p>セブ島で積み重ねた経験と信頼。安全第一でご案内します。</p></div>
+    <div class="strength"><div class="big">38,000<small>組+</small></div><h3>累計ご案内実績</h3><p>ご家族・カップル・ご友人・留学生まで、たくさんのお客様に選ばれています。</p></div>
+    <div class="strength"><div class="big">99.6<small>%</small></div><h3>お客様満足度</h3><p>「楽しかった!」の声がたくさん。SSI公式トレーニングセンターです。</p></div>
   </div>
 </div>
 
-<div class="wrap trust">
-  <div class="item"><div class="num">99.6<span style="font-size:16px">%</span></div><div class="cap">お客様満足度</div></div>
-  <div class="item"><div class="num">38,000<span style="font-size:16px">組+</span></div><div class="cap">累計ご案内実績</div></div>
-  <div class="item"><div class="num">100<span style="font-size:16px">%</span></div><div class="cap">日本人スタッフ対応</div></div>
-  <div class="item"><div class="num">SSI</div><div class="cap">公式トレーニングセンター</div></div>
+<div class="intro">
+  <div class="sec-tag">ABOUT ALL BLUE</div>
+  <h2>セブ島の海を、<br>いちばん楽しく、いちばん安心に。</h2>
+  <p>オールブルーは、マクタン島を拠点に11年。ジンベイザメもアイランドホッピングもダイビングも、日本人インストラクターがご案内します。初めての方も、お子様連れも、留学中の方も、どうぞ気軽にご相談ください。</p>
 </div>
+
+<section class="section" id="purpose" style="padding-bottom:0;">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">FIND YOUR TOUR</div>
+      <h2 class="sec-title">どんなセブ島にしたい?</h2>
+      <p class="sec-desc">気分から選べば、ぴったりのツアーが見つかります。</p>
+    </div>
+    <div class="purpose-grid">
+      <a class="purpose" href="#tours"><div class="ico">🔰</div><div><div class="want">初めて潜りたい</div><div class="go">→ 体験ダイビング</div></div></a>
+      <a class="purpose" href="tours/jinbe-packs.html"><div class="ico">🐋</div><div><div class="want">セブの王道を満喫したい</div><div class="go">→ ジンベイザメツアー</div></div></a>
+      <a class="purpose" href="tours/island-packs.html"><div class="ico">🏝️</div><div><div class="want">綺麗な海を満喫したい</div><div class="go">→ アイランドホッピング</div></div></a>
+      <a class="purpose" href="#tours"><div class="ico">🎓</div><div><div class="want">資格を取りたい</div><div class="go">→ ライセンス講習</div></div></a>
+      <a class="purpose" href="#tours"><div class="ico">🪂</div><div><div class="want">みんなで盛り上がりたい</div><div class="go">→ マリンスポーツ</div></div></a>
+      <a class="purpose" href="#tours"><div class="ico">🤿</div><div><div class="want">もっと深く潜りたい</div><div class="go">→ ファンダイビング</div></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="ranking">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">RANKING</div>
+      <h2 class="sec-title">いま一番人気のおすすめツアー</h2>
+      <p class="sec-desc">迷ったらまずはこの3つ。お客様満足度の高いツアーです。</p>
+    </div>
+    <div class="rank-grid">
+      <div class="rank-card">
+        <div class="rank-no">1</div>
+        <a class="tour-card" href="plan.html?id=jinbe-tumalog-sumilon">
+          <div class="tour-photo"><img src="photos/jinbe.jpg" alt="ジンベイザメツアー"><div class="badge">一番人気</div></div>
+          <div class="tour-body">
+            <div class="tour-tags">オスロブ ・ 1日</div>
+            <div class="tour-title">ジンベエザメ + ツマログの滝 + スミロン島ツアー</div>
+            <div class="tour-foot"><div class="price">¥10,500〜/名</div><div class="rating"><span class="stars">★★★★★</span><br><b>4.9</b> (320)</div></div>
+          </div>
+        </a>
+      </div>
+      <div class="rank-card">
+        <div class="rank-no r2">2</div>
+        <a class="tour-card" href="plan.html?id=island-3">
+          <div class="tour-photo"><img src="photos/island_hopping.jpg" alt="アイランドホッピング"><div class="badge">映え度No.1</div></div>
+          <div class="tour-body">
+            <div class="tour-tags">ナルスアン島・パンダノン島</div>
+            <div class="tour-title">アイランドホッピング｜離島3島めぐり</div>
+            <div class="tour-foot"><div class="price">¥6,800〜/名</div><div class="rating"><span class="stars">★★★★★</span><br><b>4.8</b> (487)</div></div>
+          </div>
+        </a>
+      </div>
+      <div class="rank-card">
+        <div class="rank-no r3">3</div>
+        <a class="tour-card" href="plan.html?id=trial-2dive">
+          <div class="tour-photo"><img src="https://images.unsplash.com/photo-1573790387438-4da905039392?w=600&q=75" alt="体験ダイビング2dive"><div class="badge">初心者歓迎</div></div>
+          <div class="tour-body">
+            <div class="tour-tags">マクタン島近海</div>
+            <div class="tour-title">体験ダイビング2dive</div>
+            <div class="tour-foot"><div class="price">¥12,000〜/名</div><div class="rating"><span class="stars">★★★★★</span><br><b>4.8</b> (441)</div></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="tours">
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-tag">POPULAR TOURS</div>
-      <h2 class="sec-title">人気のツアー・アクティビティ</h2>
-      <p class="sec-desc">セブ島の海を知り尽くしたスタッフが、あなたにぴったりの1日をご案内します。</p>
+      <div class="sec-tag">CATEGORY</div>
+      <h2 class="sec-title">ツアーを種類から探す</h2>
+      <p class="sec-desc">気になる種類を選ぶと、いろいろなプランから好きなものを選べます。</p>
     </div>
     <div class="tour-grid">
 
-      <a class="tour-card" href="tours/jinbe.html">
+      <a class="tour-card" href="tours/jinbe-packs.html">
         <div class="tour-photo">
           <img src="photos/jinbe.jpg" alt="ジンベイザメツアー">
           <div class="badge">遭遇率No.1</div>
         </div>
         <div class="tour-body">
           <div class="tour-tags">オスロブ ・ 半日〜1日</div>
-          <div class="tour-title">ジンベイザメ・カワサン滝ツアー</div>
+          <div class="tour-title">ジンベイザメツアー</div>
           <div class="tour-feats">
             <div>🐋 遭遇率99%の感動体験</div>
             <div>📸 水中カメラマン同行・写真無料</div>
@@ -297,14 +405,14 @@
         </div>
       </a>
 
-      <a class="tour-card" href="tours/island_hopping.html">
+      <a class="tour-card" href="tours/island-packs.html">
         <div class="tour-photo">
           <img src="photos/island_hopping.jpg" alt="アイランドホッピング">
           <div class="badge">映え度No.1</div>
         </div>
         <div class="tour-body">
           <div class="tour-tags">ナルスアン島・パンダノン島</div>
-          <div class="tour-title">アイランドホッピング｜離島3島めぐり</div>
+          <div class="tour-title">アイランドホッピング</div>
           <div class="tour-feats">
             <div>🏝️ コバルトブルーの離島を3島制覇</div>
             <div>🍖 ビーチでBBQランチ付き</div>
@@ -317,14 +425,14 @@
         </div>
       </a>
 
-      <div class="tour-card">
+      <a class="tour-card" href="tours/fun-packs.html">
         <div class="tour-photo">
           <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=600&q=75" alt="ファンダイビング">
           <div class="badge">上級者向け</div>
         </div>
         <div class="tour-body">
           <div class="tour-tags">セブ島全域・全ダイブポイント</div>
-          <div class="tour-title">ファンダイビング｜セブ島の絶景リーフを巡る</div>
+          <div class="tour-title">ファンダイビング</div>
           <div class="tour-feats">
             <div>🐠 世界屈指のダイブポイントへ</div>
             <div>🎒 レンタル機材完備</div>
@@ -335,16 +443,16 @@
             <div class="rating"><span class="stars">★★★★★</span><br><b>4.9</b> (355)</div>
           </div>
         </div>
-      </div>
+      </a>
 
-      <div class="tour-card">
+      <a class="tour-card" href="tours/license-packs.html">
         <div class="tour-photo">
           <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=75" alt="PADIライセンス講習">
           <div class="badge">留学生割引あり</div>
         </div>
         <div class="tour-body">
           <div class="tour-tags">マクタン島リゾートエリア</div>
-          <div class="tour-title">PADIオープンウォーターライセンス講習</div>
+          <div class="tour-title">ライセンス講習(PADI / SSI)</div>
           <div class="tour-feats">
             <div>🎓 世界共通の潜水ライセンス取得</div>
             <div>👨‍🏫 全員日本人インストラクター</div>
@@ -355,16 +463,16 @@
             <div class="rating"><span class="stars">★★★★★</span><br><b>5.0</b> (208)</div>
           </div>
         </div>
-      </div>
+      </a>
 
-      <div class="tour-card">
+      <a class="tour-card" href="tours/marine-packs.html">
         <div class="tour-photo">
           <img src="photos/jetski.jpg" alt="マリンスポーツ">
           <div class="badge">グループにおすすめ</div>
         </div>
         <div class="tour-body">
           <div class="tour-tags">Vistamarリゾート施設内</div>
-          <div class="tour-title">マリンスポーツ｜バナナボート・パラセーリング・ジェットスキー</div>
+          <div class="tour-title">マリンスポーツ</div>
           <div class="tour-feats">
             <div>🚤 バナナボート・パラセーリング・ジェットスキー</div>
             <div>👨‍👩‍👧‍👦 5人乗りOKで家族旅行にも</div>
@@ -375,16 +483,16 @@
             <div class="rating"><span class="stars">★★★★★</span><br><b>4.7</b> (298)</div>
           </div>
         </div>
-      </div>
+      </a>
 
-      <div class="tour-card">
+      <a class="tour-card" href="tours/trial-packs.html">
         <div class="tour-photo">
           <img src="https://images.unsplash.com/photo-1573790387438-4da905039392?w=600&q=75" alt="体験ダイビング">
           <div class="badge">初心者歓迎</div>
         </div>
         <div class="tour-body">
           <div class="tour-tags">マクタン島近海</div>
-          <div class="tour-title">体験ダイビング｜泳げなくても大丈夫</div>
+          <div class="tour-title">体験ダイビング</div>
           <div class="tour-feats">
             <div>🔰 泳げない・初めてでも安心</div>
             <div>🎒 レンタル器材すべて込み</div>
@@ -395,7 +503,7 @@
             <div class="rating"><span class="stars">★★★★★</span><br><b>4.8</b> (441)</div>
           </div>
         </div>
-      </div>
+      </a>
 
     </div>
   </div>
@@ -416,6 +524,36 @@
     </div>
     <div class="about-photo">
       <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=75" alt="ダイビングの様子">
+    </div>
+  </div>
+</section>
+
+<section class="section" id="staff">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">STAFF</div>
+      <h2 class="sec-title">スタッフ紹介</h2>
+      <p class="sec-desc">当日あなたをご案内するのは、経験豊富な日本人スタッフです。</p>
+    </div>
+    <div class="staff-grid">
+      <div class="staff-card">
+        <div class="staff-photo">A</div>
+        <div class="role">インストラクター</div>
+        <div class="nm">スタッフ名(仮)</div>
+        <p>ここに経歴・資格・ひとことを入れます。(サンプル文)セブ島歴○年。ジンベイザメ案内が得意です。</p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-photo" style="background:var(--coral)">B</div>
+        <div class="role">インストラクター</div>
+        <div class="nm">スタッフ名(仮)</div>
+        <p>ここに経歴・資格・ひとことを入れます。(サンプル文)写真撮影が得意で、最高の1枚をお届けします。</p>
+      </div>
+      <div class="staff-card">
+        <div class="staff-photo" style="background:var(--ocean)">C</div>
+        <div class="role">インストラクター</div>
+        <div class="nm">スタッフ名(仮)</div>
+        <p>ここに経歴・資格・ひとことを入れます。(サンプル文)初心者・お子様連れの方も安心してお任せください。</p>
+      </div>
     </div>
   </div>
 </section>

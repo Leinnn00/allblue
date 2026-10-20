@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プラン詳細 | All Blue Cebu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0d2b4e;--navy-2:#123a66;--ocean:#1c74b3;--teal:#0e9488;--coral:#ef5b3d;--coral-dark:#c93f24;--sand:#fbf7ef;--ink:#16242f;--muted:#66727c;--line:#e7e2d6;--radius:18px;}
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Zen Kaku Gothic New',sans-serif;color:var(--ink);background:var(--sand);line-height:1.7;}
+  h1,h2,h3{font-weight:700;margin:0;}
+  p{margin:0;}
+  img{display:block;max-width:100%;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1180px;margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand .mark{width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;font-size:15px;}
+  .brand .name{font-weight:700;font-size:19px;color:var(--navy);letter-spacing:.3px;}
+  .brand .sub{font-size:10px;color:var(--muted);letter-spacing:1.5px;}
+  .nav-links{display:flex;gap:24px;font-size:14px;font-weight:500;}
+  .nav-links a:hover{color:var(--coral);}
+  .btn-line{background:#06C755;color:#fff;font-weight:700;font-size:14px;padding:10px 20px;border-radius:30px;display:flex;align-items:center;gap:6px;}
+
+  .breadcrumb{font-size:13px;color:var(--muted);padding:18px 0;}
+  .breadcrumb a:hover{color:var(--coral);}
+  .notice{background:#fff4d6;color:#8a6d00;font-size:12.5px;border-radius:10px;padding:8px 14px;margin-bottom:14px;}
+
+  .detail-hero{position:relative;border-radius:22px;overflow:hidden;height:380px;background:#dbe7f0;}
+  .detail-hero img{width:100%;height:100%;object-fit:cover;}
+  .detail-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,20,35,.75) 0%,rgba(8,20,35,.1) 55%);}
+  .detail-hero-content{position:absolute;z-index:1;left:0;right:0;bottom:0;padding:32px;color:#fff;}
+  .badge-row{display:flex;gap:8px;margin-bottom:12px;}
+  .badge{background:var(--coral);color:#fff;font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;box-shadow:0 4px 12px rgba(0,0,0,.3);}
+  .detail-hero h1{font-size:30px;text-shadow:0 2px 6px rgba(0,0,0,.6),0 8px 24px rgba(0,0,0,.55);}
+
+  .quickfacts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:28px 0;}
+  .qf{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center;}
+  .qf .label{font-size:12px;color:var(--muted);}
+  .qf .value{font-size:16px;font-weight:700;color:var(--navy);margin-top:4px;}
+
+  .layout{display:grid;grid-template-columns:2fr 1fr;gap:40px;align-items:start;margin:36px 0 60px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:28px;margin-bottom:24px;}
+  .card h2{font-size:20px;color:var(--navy);margin-bottom:14px;}
+  .card p{color:var(--ink);font-size:14.5px;}
+  .tags-inline{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+  .tag-pill{background:var(--sand);border:1px solid var(--line);font-size:12.5px;padding:6px 12px;border-radius:20px;color:var(--muted);}
+
+  .timeline{margin-top:10px;}
+  .tl-item{display:flex;gap:16px;padding:12px 0;border-top:1px dashed var(--line);}
+  .tl-item:first-child{border-top:none;}
+  .tl-time{width:64px;flex-shrink:0;font-weight:700;color:var(--coral-dark);font-size:14px;}
+  .tl-text{font-size:14px;color:var(--ink);}
+
+  .incl-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .incl-col h3{font-size:14px;margin-bottom:10px;}
+  .incl-col.yes h3{color:#0b6e5c;}
+  .incl-col.no h3{color:#a32d2d;}
+  .incl-col div{font-size:13.5px;color:var(--ink);margin-bottom:8px;}
+
+  .faq-item{border-top:1px dashed var(--line);padding:14px 0;}
+  .faq-item:first-child{border-top:none;}
+  .faq-q{font-weight:700;font-size:14px;color:var(--navy);margin-bottom:6px;}
+  .faq-a{font-size:13.5px;color:var(--muted);}
+
+  /* price / options card */
+  .price-card{position:sticky;top:90px;}
+  .rating-line{display:flex;align-items:center;gap:8px;margin-bottom:14px;font-size:13.5px;color:var(--muted);}
+  .rating-line .stars{color:#f5a623;font-size:15px;}
+  .row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-top:1px dashed var(--line);font-size:14px;gap:10px;}
+  .row:first-of-type{border-top:none;}
+  .row .unitp{font-weight:700;color:var(--coral-dark);}
+  .row small{display:block;color:var(--muted);font-size:11.5px;}
+  select{font-family:inherit;font-size:14px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:#fff;}
+  .opt-title{font-size:13px;font-weight:700;color:var(--navy);margin-top:14px;padding-top:12px;border-top:1px solid var(--line);}
+  .opt{display:flex;align-items:flex-start;gap:8px;padding:8px 0;font-size:13.5px;cursor:pointer;}
+  .opt input{margin-top:5px;accent-color:var(--coral);}
+  .opt .oname{flex:1;}
+  .opt .oname small{display:block;color:var(--muted);font-size:11.5px;}
+  .opt .oprice{font-weight:700;color:var(--coral-dark);white-space:nowrap;}
+  .total{margin-top:14px;padding-top:14px;border-top:2px solid var(--navy);}
+  .total .lines{font-size:12.5px;color:var(--muted);}
+  .total .lines div{display:flex;justify-content:space-between;}
+  .total .sum{display:flex;justify-content:space-between;align-items:baseline;margin-top:8px;}
+  .total .sum b{font-size:26px;color:var(--coral-dark);}
+  .cta-book{display:block;text-align:center;background:var(--coral);color:#fff;font-weight:700;padding:15px;border-radius:30px;margin-top:16px;font-size:15px;box-shadow:0 10px 24px rgba(239,91,61,.35);}
+  .cta-line{display:flex;align-items:center;justify-content:center;gap:8px;background:#06C755;color:#fff;font-weight:700;padding:14px;border-radius:30px;margin-top:10px;font-size:14.5px;}
+
+  footer{background:var(--navy);color:#c9d9e6;padding:40px 0 24px;margin-top:60px;text-align:center;font-size:13px;}
+  footer a{color:#aec3d4;}
+
+  @media (max-width:900px){
+    .layout{grid-template-columns:1fr;}
+    .quickfacts{grid-template-columns:repeat(2,1fr);}
+    .incl-grid{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+    .price-card{position:static;}
+    .detail-hero{height:280px;}
+    .detail-hero h1{font-size:22px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="index.html">
+      <div class="mark">AB</div>
+      <div><div class="name">all blue</div><div class="sub">SCUBA &amp; MARINESPORTS CLUB CEBU</div></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#ranking">おすすめ</a>
+      <a href="index.html#tours">ツアー一覧</a>
+      <a href="index.html#staff">スタッフ</a>
+    </div>
+    <a class="btn-line" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">💬 LINEで予約</a>
+  </div>
+</header>
+
+<div class="wrap" id="app"></div>
+
+<footer>
+  <div class="wrap">
+    © All Blue Cebu — Scuba &amp; Marinesports Club. 本ページは実験的なデザイン案（モックアップ）です。正式なものではありません。<br>
+    <a href="index.html">トップページに戻る</a>
+  </div>
+</footer>
+
+<script src="plans.js"></script>
+<script>
+(function(){
+  var id = new URLSearchParams(location.search).get("id");
+  var p = PLANS[id];
+  var app = document.getElementById("app");
+  if (!p) {
+    app.innerHTML = '<div class="card" style="margin:40px 0;text-align:center"><h2>プランが見つかりません</h2><p><a href="index.html" style="color:var(--coral-dark)">トップページに戻る</a></p></div>';
+    return;
+  }
+  document.title = p.title + " | All Blue Cebu";
+
+  function yen(n){ return "¥" + n.toLocaleString("ja-JP"); }
+  function list(arr){ return arr.map(function(x){ return "<div>" + x + "</div>"; }).join(""); }
+
+  var html = "";
+  html += '<div class="breadcrumb"><a href="index.html">トップ</a> ／ <a href="index.html#tours">ツアー一覧</a> ／ <a href="' + p.genreUrl + '">' + p.genre + '</a> ／ ' + p.title + '</div>';
+  if (p.notice) html += '<div class="notice" style="background:#fdeaea;color:#a32d2d;font-weight:700;font-size:13.5px;">⚠️ ' + p.notice + '</div>';
+  html += '<div class="notice">※ 内容・料金は仮のサンプルです</div>';
+  html += '<div class="detail-hero"><img src="' + p.img + '" alt="' + p.title + '"><div class="detail-hero-content">' + (p.badge ? '<div class="badge-row"><div class="badge">' + p.badge + '</div></div>' : '') + '<h1>' + p.title + '</h1></div></div>';
+  html += '<div class="quickfacts">' + p.facts.map(function(f){ return '<div class="qf"><div class="label">' + f[0] + '</div><div class="value">' + f[1] + '</div></div>'; }).join("") + '</div>';
+
+  html += '<div class="layout"><div>';
+  html += '<div class="card"><h2>ツアー概要</h2><p>' + p.overview + '</p><div class="tags-inline">' + p.tags.map(function(t){ return '<div class="tag-pill">' + t + '</div>'; }).join("") + '</div></div>';
+  html += '<div class="card"><h2>こんな方におすすめ</h2><p>' + p.recommend.map(function(r){ return "・" + r; }).join("<br>") + '</p></div>';
+  html += '<div class="card"><h2>タイムスケジュール</h2><div class="timeline">' + p.timeline.map(function(t){ return '<div class="tl-item"><div class="tl-time">' + t[0] + '</div><div class="tl-text">' + t[1] + '</div></div>'; }).join("") + '</div></div>';
+  html += '<div class="card"><h2>含まれるもの・含まれないもの</h2><div class="incl-grid"><div class="incl-col yes"><h3>✓ 含まれるもの</h3>' + list(p.included) + '</div><div class="incl-col no"><h3>✕ 含まれないもの</h3>' + list(p.excluded) + '</div></div></div>';
+  html += '<div class="card"><h2>よくある質問</h2>' + p.faq.map(function(f){ return '<div class="faq-item"><div class="faq-q">' + f[0] + '</div><div class="faq-a">' + f[1] + '</div></div>'; }).join("") + '</div>';
+  html += '</div>';
+
+  // price card
+  var opts = p.options || [];
+  html += '<div><div class="card price-card">';
+  html += '<div class="rating-line"><span class="stars">★★★★★</span> <b>' + p.rating.toFixed(1) + '</b>（' + p.reviews + '件のレビュー）</div>';
+  html += '<div class="row"><div>' + (p.unit === "台" ? "台数" : "大人") + '<small>' + yen(p.price) + '〜 / ' + p.unit + '</small></div><select id="adult">' + [1,2,3,4,5,6,7,8,9,10].map(function(n){ return '<option value="' + n + '">' + n + (p.unit) + '</option>'; }).join("") + '</select></div>';
+  if (p.childPrice) {
+    html += '<div class="row"><div>子供<small>' + yen(p.childPrice) + '〜 / 名</small></div><select id="child">' + [0,1,2,3,4,5,6,7,8,9,10].map(function(n){ return '<option value="' + n + '">' + n + '名</option>'; }).join("") + '</select></div>';
+  }
+  if (opts.length) {
+    html += '<div class="opt-title">オプションを追加</div>';
+    html += opts.map(function(o){
+      return '<label class="opt"><input type="checkbox" class="optchk" value="' + o.id + '"><span class="oname">' + o.name + '<small>' + (o.per === "person" ? "1名あたり" : "1グループ/1回あたり") + '</small></span><span class="oprice">+' + yen(o.price) + '</span></label>';
+    }).join("");
+  }
+  html += '<div class="total"><div class="lines" id="lines"></div><div class="sum"><span>合計(税込・目安)</span><b id="sum"></b></div></div>';
+  html += '<a class="cta-book" id="book" href="#">この内容で申し込む</a>';
+  html += '<a class="cta-line" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">💬 LINEで質問する</a>';
+  html += '</div></div></div>';
+  app.innerHTML = html;
+
+  function calc(){
+    var adult = parseInt(document.getElementById("adult").value, 10);
+    var childEl = document.getElementById("child");
+    var child = childEl ? parseInt(childEl.value, 10) : 0;
+    var heads = adult + child;
+    var lines = [];
+    var total = 0;
+    var a = p.price * adult; total += a;
+    lines.push([(p.unit === "台" ? "台数" : "大人") + " " + yen(p.price) + " × " + adult, a]);
+    if (child > 0) { var c = p.childPrice * child; total += c; lines.push(["子供 " + yen(p.childPrice) + " × " + child, c]); }
+    var chosen = [];
+    opts.forEach(function(o){
+      var el = document.querySelector('.optchk[value="' + o.id + '"]');
+      if (el && el.checked) {
+        var amt = o.per === "person" ? o.price * heads : o.price;
+        total += amt; chosen.push(o.id);
+        lines.push([o.name + (o.per === "person" ? " × " + heads : ""), amt]);
+      }
+    });
+    document.getElementById("lines").innerHTML = lines.map(function(l){ return "<div><span>" + l[0] + "</span><span>" + yen(l[1]) + "</span></div>"; }).join("");
+    document.getElementById("sum").textContent = yen(total);
+    document.getElementById("book").href = "apply.html?tour=" + encodeURIComponent(id) + "&adult=" + adult + "&child=" + child + "&opts=" + chosen.join(",") + "&total=" + total;
+  }
+  document.getElementById("app").addEventListener("change", calc);
+  calc();
+})();
+</script>
+
+</body>
+</html>

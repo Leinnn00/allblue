@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ファンダイビング プラン一覧 | All Blue Cebu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0d2b4e;--ocean:#1c74b3;--teal:#0e9488;--coral:#ef5b3d;--coral-dark:#c93f24;--sand:#fbf7ef;--ink:#16242f;--muted:#66727c;--line:#e7e2d6;--radius:18px;}
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Zen Kaku Gothic New',sans-serif;color:var(--ink);background:var(--sand);line-height:1.7;}
+  h1,h2,h3{font-weight:700;margin:0;}
+  p{margin:0;}
+  img{display:block;max-width:100%;}
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1180px;margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand .mark{width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;font-size:15px;}
+  .brand .name{font-weight:700;font-size:19px;color:var(--navy);}
+  .brand .sub{font-size:10px;color:var(--muted);letter-spacing:1.5px;}
+  .btn-line{background:#06C755;color:#fff;font-weight:700;font-size:14px;padding:10px 20px;border-radius:30px;}
+
+  .breadcrumb{font-size:13px;color:var(--muted);padding:18px 0;}
+  .breadcrumb a:hover{color:var(--coral);}
+  .page-head{margin:6px 0 28px;}
+  .page-head h1{font-size:28px;color:var(--navy);}
+  .page-head p{margin-top:8px;color:var(--muted);font-size:14.5px;}
+
+  .pack-list{display:flex;flex-direction:column;gap:20px;margin-bottom:60px;}
+  .pack{display:grid;grid-template-columns:280px 1fr 220px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:box-shadow .2s,transform .2s;}
+  a.pack:hover{box-shadow:0 20px 40px rgba(15,40,70,.12);transform:translateY(-3px);}
+  .pack-photo{position:relative;min-height:190px;background:#dbe7f0;}
+  .pack-photo img{width:100%;height:100%;object-fit:cover;}
+  .pack-photo .badge{position:absolute;top:12px;left:12px;background:var(--coral);color:#fff;font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:20px;box-shadow:0 4px 12px rgba(0,0,0,.3);}
+  .pack-body{padding:20px 22px;}
+  .pack-tags{font-size:12px;color:var(--ocean);font-weight:700;}
+  .pack-title{font-size:18px;color:var(--navy);margin-top:4px;}
+  .pack-feats{margin-top:10px;font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:3px;}
+  .pack-side{padding:20px;border-left:1px dashed var(--line);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:6px;}
+  .pack-side .price{font-size:24px;font-weight:700;color:var(--coral-dark);}
+  .pack-side .price span{font-size:12px;color:var(--muted);font-weight:500;}
+  .pack-btn{margin-top:6px;background:var(--coral);color:#fff;font-weight:700;font-size:14px;padding:11px 22px;border-radius:30px;box-shadow:0 8px 18px rgba(239,91,61,.3);}
+  .pack.soon{opacity:.8;}
+  .pack.soon .pack-btn{background:#9aa6af;box-shadow:none;}
+
+  footer{background:var(--navy);color:#c9d9e6;padding:40px 0 24px;margin-top:60px;text-align:center;font-size:13px;}
+  footer a{color:#aec3d4;}
+
+  @media (max-width:860px){
+    .pack{grid-template-columns:1fr;}
+    .pack-photo{min-height:0;height:170px;}
+    .pack-side{border-left:none;border-top:1px dashed var(--line);flex-direction:row;justify-content:space-between;text-align:left;}
+    .page-head h1{font-size:22px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="../index.html">
+      <div class="mark">AB</div>
+      <div><div class="name">all blue</div><div class="sub">SCUBA &amp; MARINESPORTS CLUB CEBU</div></div>
+    </a>
+    <a class="btn-line" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">💬 LINEで予約</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="breadcrumb">
+    <a href="../index.html">トップ</a> ／ <a href="../index.html#tours">ツアー一覧</a> ／ ファンダイビング
+  </div>
+
+  <div class="page-head">
+    <h1>🤿 ファンダイビング プラン一覧</h1>
+    <p>潜るエリアをお選びください。(※プラン内容・料金は仮のサンプルです)</p>
+    <p style="margin-top:10px;display:inline-block;background:#fdeaea;color:#a32d2d;font-weight:700;font-size:13.5px;border-radius:10px;padding:8px 14px;">⚠️ ファンダイビングは認定ライセンス(Cカード)をお持ちの方限定です</p>
+  </div>
+
+  <div class="pack-list">
+
+    <div class="pack soon" data-plan="fun-island">
+      <div class="pack-photo"><img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=600&q=75" alt="離島(海洋保護区)2dive"><div class="badge">海洋保護区</div></div>
+      <div class="pack-body">
+        <div class="pack-tags">離島エリア ・ 1日</div>
+        <h2 class="pack-title">離島(海洋保護区)2dive</h2>
+        <div class="pack-feats">
+          <div>🐠 透明度抜群の海洋保護区で2本</div>
+          <div>🎒 レンタル機材完備</div>
+          <div>👨‍🏫 日本人インストラクター同行</div>
+        </div>
+      </div>
+      <div class="pack-side">
+        <div><div class="price">¥9,800〜<span>/2本</span></div></div>
+        <div class="pack-btn">準備中</div>
+      </div>
+    </div>
+
+    <div class="pack soon" data-plan="fun-mactan">
+      <div class="pack-photo"><img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=600&q=75" alt="マクタン島近郊2dive"><div class="badge">手軽に潜る</div></div>
+      <div class="pack-body">
+        <div class="pack-tags">マクタン島近郊 ・ 半日</div>
+        <h2 class="pack-title">マクタン島近郊2dive</h2>
+        <div class="pack-feats">
+          <div>🐠 ホテルから近く、移動が短くて楽ちん</div>
+          <div>🎒 レンタル機材完備</div>
+          <div>👨‍🏫 日本人インストラクター同行</div>
+        </div>
+      </div>
+      <div class="pack-side">
+        <div><div class="price">¥7,200〜<span>/2本</span></div></div>
+        <div class="pack-btn">準備中</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    © All Blue Cebu — Scuba &amp; Marinesports Club. 本ページは実験的なデザイン案（モックアップ）です。正式なものではありません。<br>
+    <a href="../index.html">トップページに戻る</a>
+  </div>
+</footer>
+
+<script src="packlink.js"></script>
+</body>
+</html>
