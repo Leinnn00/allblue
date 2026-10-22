@@ -356,3 +356,12 @@ var NO_CAMERA_FAQ_IDS = ["para", "jet", "banana"];
 Object.keys(PLANS).forEach(function (k) {
   if (NO_CAMERA_FAQ_IDS.indexOf(k) === -1) PLANS[k].faq = PLANS[k].faq.concat([CAMERA_FAQ]);
 });
+
+/* ---- 【仮】スライド確認用のダミー画像(本物の写真ができたら、各プランに imgs: [...] を書いてこのブロックを削除) ---- */
+var DUMMY_SLIDES = [
+  "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&q=75",
+  "https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=1200&q=75"
+];
+Object.keys(PLANS).forEach(function (k) {
+  if (!PLANS[k].imgs) PLANS[k].imgs = [PLANS[k].img].concat(DUMMY_SLIDES);
+});
