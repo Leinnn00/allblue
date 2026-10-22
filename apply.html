@@ -25,11 +25,16 @@
   a{text-decoration:none;color:inherit;}
   .wrap{max-width:640px;margin:0 auto;padding:0 24px;}
 
-  header{background:#fff;border-bottom:1px solid var(--line);}
-  .nav{display:flex;align-items:center;padding:14px 24px;max-width:1180px;margin:0 auto;}
+  header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1180px;margin:0 auto;}
   .brand{display:flex;align-items:center;gap:10px;}
   .brand .mark{width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;font-size:15px;}
-  .brand .name{font-weight:700;font-size:19px;color:var(--navy);}
+  .brand .name{font-weight:700;font-size:19px;color:var(--navy);letter-spacing:.3px;}
+  .brand .sub{font-size:10px;color:var(--muted);letter-spacing:1.5px;}
+  .nav-links{display:flex;gap:24px;font-size:14px;font-weight:500;}
+  .nav-links a:hover{color:var(--coral);}
+  .btn-line{background:#06C755;color:#fff;font-weight:700;font-size:14px;padding:10px 20px;border-radius:30px;display:flex;align-items:center;gap:6px;}
+  @media (max-width:860px){.nav-links{display:none;}}
 
   .box{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px;margin:48px 0;text-align:center;}
   .box h1{font-size:24px;color:var(--navy);}
@@ -53,7 +58,10 @@
   .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
   .cal-dow{text-align:center;font-size:12px;color:var(--muted);padding:4px 0;}
   .cal-dow.sun{color:#c93f24;} .cal-dow.sat{color:#1c74b3;}
-  .cal-day{height:42px;border:1px solid transparent;background:#fbf7ef;border-radius:10px;font:inherit;font-size:14px;color:var(--ink);cursor:pointer;}
+  .cal-day{height:50px;border:1px solid transparent;background:#fbf7ef;border-radius:10px;font:inherit;font-size:14px;color:var(--ink);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2;padding:0;}
+  .cal-day .dp{font-size:9.5px;color:var(--muted);min-height:11px;}
+  .cal-day.sel .dp{color:#fff;}
+  .cal-day:disabled .dp.ng{color:#a32d2d;font-weight:700;}
   .cal-day:hover:not(:disabled){border-color:var(--coral);}
   .cal-day:disabled{background:transparent;color:#c3c9cd;cursor:default;}
   .cal-day.sel{background:var(--coral);color:#fff;font-weight:700;}
@@ -61,6 +69,20 @@
   .cal-picked{margin-top:12px;font-size:14px;color:var(--ink);}
   .cal-picked b{color:var(--coral-dark);}
   .cal-note{margin-top:6px;font-size:12px;color:var(--muted);}
+
+  /* mail form */
+  .mailform{border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:24px;text-align:left;}
+  .mailform .t{font-weight:700;font-size:15px;}
+  .mailform .d{font-size:12.5px;color:var(--muted);margin:2px 0 10px;}
+  .mailform label{display:block;font-size:13px;font-weight:700;margin-top:10px;}
+  .mailform input,.mailform textarea{display:block;width:100%;margin-top:4px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:14px;background:#fff;}
+  .mailform input:focus,.mailform textarea:focus{outline:2px solid var(--coral);border-color:transparent;}
+  .mailform .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+  #mailBtn{margin-top:16px;width:100%;background:var(--coral);color:#fff;border:none;border-radius:24px;padding:13px;font:inherit;font-weight:700;font-size:15px;cursor:pointer;}
+  #mailBtn:disabled{background:#9aa6af;cursor:default;}
+  #mailMsg{margin-top:10px;font-size:13.5px;font-weight:700;}
+  #mailMsg.ok{color:#0e7a4f;} #mailMsg.err{color:#a32d2d;}
+  .mailform .priv{margin-top:8px;font-size:12px;color:var(--muted);}
 
   footer{background:var(--navy);color:#c9d9e6;padding:32px 0;margin-top:60px;text-align:center;font-size:13px;}
   footer a{color:#aec3d4;}
@@ -72,8 +94,14 @@
   <div class="nav">
     <a class="brand" href="index.html">
       <div class="mark">AB</div>
-      <div class="name">all blue</div>
+      <div><div class="name">all blue</div><div class="sub">SCUBA &amp; MARINESPORTS CLUB CEBU</div></div>
     </a>
+    <div class="nav-links">
+      <a href="index.html#ranking">おすすめ</a>
+      <a href="index.html#tours">ツアー一覧</a>
+      <a href="index.html#staff">スタッフ</a>
+    </div>
+    <a class="btn-line" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">💬 LINEで予約</a>
   </div>
 </header>
 
@@ -92,6 +120,7 @@
         <button type="button" class="cal-nav" id="calNext" aria-label="次の月">›</button>
       </div>
       <div class="cal-grid" id="calGrid"></div>
+      <div class="cal-note" id="calPriceNote"></div>
       <div class="cal-picked" id="calPicked">日付が未選択です</div>
       <div class="cal-note">受付は前日までです。予約はスタッフが内容を確認し、LINEでご連絡した時点で確定します。</div>
     </div>
@@ -104,13 +133,18 @@
       </div>
       <div class="go">開く</div>
     </a>
-    <div class="method">
-      <div>
-        <div class="t">🌐 Webフォームで予約</div>
-        <div class="d">日程やご要望を詳しく入力できます</div>
-      </div>
-      <div class="go">開く</div>
-    </div>
+    <form class="mailform" id="mailForm" novalidate>
+      <div class="t">✉️ メールで予約リクエスト</div>
+      <div class="d">LINEをお使いでない方はこちら。上のカレンダーで希望日を選んでから送信してください。</div>
+      <label>お名前<input name="name" required maxlength="60" autocomplete="name"></label>
+      <label>メールアドレス<input name="email" type="email" required maxlength="100" autocomplete="email"></label>
+      <label>電話番号(任意)<input name="tel" maxlength="30" autocomplete="tel"></label>
+      <label>ご要望・ご質問(任意)<textarea name="note" rows="3" maxlength="1000"></textarea></label>
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button type="submit" id="mailBtn">この内容で送信する</button>
+      <div id="mailMsg" role="status"></div>
+      <div class="priv">ご入力の個人情報は、ご予約のご連絡にのみ使用します。</div>
+    </form>
     <div class="method">
       <div>
         <div class="t">📞 お電話でのお問い合わせ</div>
@@ -138,23 +172,44 @@
   var tour = params.get("tour");
   var plan = (typeof PLANS !== "undefined" && tour) ? PLANS[tour] : null;
   var tourTitle = "", summaryTxt = "";
+  var ctx = null;                              // 人数・オプションの選択内容
+  var CONFIG = { rules: [], cutoff: [] };      // スプレッドシートから読み込む料金ルール・受付設定
+
+  // 選んだ日の料金(日別ルール)を反映した合計
+  function calcTotal(key) {
+    var info = key ? dayInfo(key) : {};
+    var ap = info.adult != null ? info.adult : plan.price;
+    var cp = info.child != null ? info.child : (plan.childPrice || 0);
+    var heads = ctx.adult + ctx.child;
+    var t = ap * ctx.adult + cp * ctx.child;
+    (plan.options || []).forEach(function (o) {
+      if (ctx.optIds.indexOf(o.id) !== -1) t += o.per === "person" ? o.price * heads : o.price;
+    });
+    return t;
+  }
+
+  function renderSummary(key) {
+    if (!plan || !ctx) return;
+    var optNames = ctx.optIds.map(function (oid) {
+      var o = (plan.options || []).filter(function (x) { return x.id === oid; })[0];
+      return o ? o.name : oid;
+    });
+    var txt = (plan.unit === "台" ? "台数" : "大人") + ctx.adult + plan.unit;
+    if (ctx.child > 0) txt += " / 子供" + ctx.child + "名";
+    if (optNames.length) txt += " / オプション:" + optNames.join("、");
+    txt += " / 合計(目安) ¥" + calcTotal(key).toLocaleString("ja-JP");
+    document.getElementById("summary").textContent = txt;
+    document.getElementById("summaryBox").style.display = "block";
+    summaryTxt = txt;
+  }
+
   if (plan) {
     tourTitle = plan.title;
     document.getElementById("tourName").textContent = plan.title;
-    var adult = params.get("adult"), child = params.get("child"), total = params.get("total");
+    var adult = params.get("adult"), child = params.get("child");
     if (adult) {
-      var optIds = (params.get("opts") || "").split(",").filter(Boolean);
-      var optNames = optIds.map(function (oid) {
-        var o = (plan.options || []).filter(function (x) { return x.id === oid; })[0];
-        return o ? o.name : oid;
-      });
-      var txt = (plan.unit === "台" ? "台数" : "大人") + adult + plan.unit;
-      if (child && child !== "0") txt += " / 子供" + child + "名";
-      if (optNames.length) txt += " / オプション:" + optNames.join("、");
-      if (total) txt += " / 合計(目安) ¥" + Number(total).toLocaleString("ja-JP");
-      document.getElementById("summary").textContent = txt;
-      document.getElementById("summaryBox").style.display = "block";
-      summaryTxt = txt;
+      ctx = { adult: +adult, child: +(child || 0), optIds: (params.get("opts") || "").split(",").filter(Boolean) };
+      renderSummary(null);
     }
   } else if (tour && tourNames[tour]) {
     document.getElementById("tourName").textContent = tourNames[tour];
@@ -162,9 +217,8 @@
   }
 
   /* ---- 希望日カレンダー ---- */
-  // 受付できない日(休止日・満席など)は "YYYY-MM-DD" で追加。今は休止日なし。
-  var CLOSED_DATES = [];
-  var LEAD_DAYS = 1;      // 何日前まで受け付けるか(1 = 前日まで → 最短は明日)
+  // 休止日・満席・日別料金・受付締切は、スプレッドシート(料金ルール / 受付設定)で管理する
+  var DEFAULT_LEAD = 1;   // スプレッドシートに設定がない場合の受付締切(1 = 前日まで → 最短は明日)
   var MAX_MONTHS = 12;    // 何か月先まで選べるか
   var DOW = ["日", "月", "火", "水", "木", "金", "土"];
 
@@ -176,13 +230,44 @@
     var p = s.split("-");
     return new Date(+p[0], +p[1] - 1, +p[2]);
   }
-  var today = cebuToday();
-  var earliest = new Date(today.getFullYear(), today.getMonth(), today.getDate() + LEAD_DAYS);
-  var latest = new Date(today.getFullYear(), today.getMonth() + MAX_MONTHS, today.getDate());
-  var view = new Date(earliest.getFullYear(), earliest.getMonth(), 1);
-  var selected = null;
+  function fromKey(k) { var p = k.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); }
 
-  function bookable(d) { return d >= earliest && d <= latest && CLOSED_DATES.indexOf(ymd(d)) === -1; }
+  // 受付締切(何日前まで)。プラン別の設定があればそれを、なければ「全体」、なければ初期値
+  function leadDays() {
+    var all = null, mine = null;
+    CONFIG.cutoff.forEach(function (c) {
+      if (c.plan === "全体") all = c.days; else if (c.plan === tour) mine = c.days;
+    });
+    return mine != null ? mine : (all != null ? all : DEFAULT_LEAD);
+  }
+
+  // その日の料金・状態(重なる行は下が優先。空欄の項目は上書きしない)
+  function dayInfo(key) {
+    var r = {};
+    CONFIG.rules.forEach(function (x) {
+      if ((x.plan === "全プラン" || x.plan === tour) && key >= x.start && key <= x.end) {
+        if (x.adult != null) r.adult = x.adult;
+        if (x.child != null) r.child = x.child;
+        if (x.status) r.status = x.status;
+      }
+    });
+    return r;
+  }
+
+  var today = cebuToday();
+  var earliest, latest, view, selected = null;
+  function setRange() {
+    earliest = new Date(today.getFullYear(), today.getMonth(), today.getDate() + leadDays());
+    latest = new Date(today.getFullYear(), today.getMonth() + MAX_MONTHS, today.getDate());
+    view = new Date(earliest.getFullYear(), earliest.getMonth(), 1);
+  }
+  setRange();
+
+  function bookable(d) {
+    return d >= earliest && d <= latest && (dayInfo(ymd(d)).status || "受付中") === "受付中";
+  }
+
+  if (plan) document.getElementById("calPriceNote").textContent = "日付の下の数字は、" + (plan.unit === "台" ? "1台" : "大人1名") + "あたりの料金(税込・目安)です。";
 
   function renderCal() {
     document.getElementById("calMonth").textContent = view.getFullYear() + "年" + (view.getMonth() + 1) + "月";
@@ -193,7 +278,15 @@
     for (var day = 1; day <= days; day++) {
       var d = new Date(view.getFullYear(), view.getMonth(), day);
       var key = ymd(d);
-      html += '<button type="button" class="cal-day' + (selected === key ? " sel" : "") + '" data-d="' + key + '"' + (bookable(d) ? "" : " disabled") + ">" + day + "</button>";
+      var inRange = d >= earliest && d <= latest;
+      var info = inRange ? dayInfo(key) : {};
+      var st = info.status || "受付中";
+      var sub = "", ng = "";
+      if (inRange) {
+        if (st !== "受付中") { sub = st; ng = " ng"; }
+        else if (plan) { sub = Number(info.adult != null ? info.adult : plan.price).toLocaleString("ja-JP"); }
+      }
+      html += '<button type="button" class="cal-day' + (selected === key ? " sel" : "") + '" data-d="' + key + '"' + (bookable(d) ? "" : " disabled") + '><span class="dn">' + day + '</span><span class="dp' + ng + '">' + sub + "</span></button>";
     }
     document.getElementById("calGrid").innerHTML = html;
     document.getElementById("calPrev").disabled = view <= new Date(earliest.getFullYear(), earliest.getMonth(), 1);
@@ -229,11 +322,68 @@
     selected = key;
     document.getElementById("calPicked").innerHTML = "希望日：<b>" + dateLabel(key) + "</b>";
     renderCal();
+    renderSummary(key);
     updateLine();
   });
   document.getElementById("calPrev").addEventListener("click", function () { view = new Date(view.getFullYear(), view.getMonth() - 1, 1); renderCal(); });
   document.getElementById("calNext").addEventListener("click", function () { view = new Date(view.getFullYear(), view.getMonth() + 1, 1); renderCal(); });
   renderCal();
+
+  /* ---- メールで予約リクエスト(Google Apps Script に送信) ---- */
+  // gas/セットアップ手順.md の手順でデプロイしたウェブアプリのURLをここに貼る
+  var MAIL_ENDPOINT = "https://script.google.com/macros/s/AKfycbzrwQZFCCeqDVEqyRqkutSt2lJORcZl3sVw_RO__D3r7ymtDIEuqo_Utf2rq441ynqm/exec";
+
+  // 料金ルール・受付設定の読み込み(失敗しても通常料金・前日締切のまま動く)
+  if (MAIL_ENDPOINT) {
+    fetch(MAIL_ENDPOINT + "?action=config")
+      .then(function (r) { return r.json(); })
+      .then(function (cfg) {
+        if (!cfg || !cfg.ok) return;
+        CONFIG = { rules: cfg.rules || [], cutoff: cfg.cutoff || [] };
+        setRange();
+        if (selected && !bookable(fromKey(selected))) {
+          selected = null;
+          document.getElementById("calPicked").textContent = "日付が未選択です";
+        }
+        renderCal();
+        renderSummary(selected);
+        updateLine();
+      })
+      .catch(function () {});
+  }
+
+  document.getElementById("mailForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var f = e.target, msg = document.getElementById("mailMsg"), btn = document.getElementById("mailBtn");
+    function say(t, cls) { msg.textContent = t; msg.className = cls || ""; }
+
+    if (!MAIL_ENDPOINT) return say("メール受付は準備中です。お手数ですがLINEからご連絡ください。", "err");
+    if (!selected) return say("先にカレンダーで希望日を選んでください。", "err");
+    if (!f.name.value.trim()) return say("お名前を入力してください。", "err");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.value.trim())) return say("メールアドレスを正しく入力してください。", "err");
+
+    var body = new URLSearchParams();
+    body.set("name", f.name.value.trim());
+    body.set("email", f.email.value.trim());
+    body.set("tel", f.tel.value.trim());
+    body.set("note", f.note.value.trim());
+    body.set("website", f.website.value);
+    body.set("tour", tourTitle || "(ツアー未選択)");
+    body.set("date", dateLabel(selected));
+    body.set("summary", summaryTxt || "(人数・オプション未選択)");
+
+    btn.disabled = true; say("送信中です…");
+    fetch(MAIL_ENDPOINT, { method: "POST", mode: "no-cors", body: body })
+      .then(function () {
+        say("送信しました。受付メールをお送りしましたのでご確認ください(届かない場合は迷惑メールフォルダもご確認ください)。", "ok");
+        f.reset();
+        btn.disabled = false;
+      })
+      .catch(function () {
+        btn.disabled = false;
+        say("送信に失敗しました。通信環境をご確認のうえ再度お試しいただくか、LINEからご連絡ください。", "err");
+      });
+  });
 </script>
 
 </body>
