@@ -102,7 +102,12 @@ var PLAN_LIST = [
   "banana｜バナナボート",
   "trial-2dive｜体験ダイビング2dive",
   "trial-island2｜体験ダイビング1dive + アイランドホッピング2島めぐり",
-  "trial-island3｜体験ダイビング1dive + アイランドホッピング3島めぐり"
+  "trial-island3｜体験ダイビング1dive + アイランドホッピング3島めぐり",
+  "cruise-only｜クルージングのみ",
+  "cruise-snorkel｜クルージング + スノーケル",
+  "cruise-skin｜クルージング + スキンダイビング",
+  "cruise-trial｜クルージング + 体験ダイビング",
+  "cruise-fun｜クルージング + ファンダイビング"
 ];
 var RULE_SHEET = "料金ルール";
 var CUTOFF_SHEET = "受付設定";
@@ -115,8 +120,6 @@ function ensureSheets_() {
     r = ss.insertSheet(RULE_SHEET);
     r.appendRow(["プラン", "開始日", "終了日", "大人料金(円)", "子供料金(円)", "状態", "メモ"]);
     r.setFrozenRows(1);
-    r.getRange("A2:A500").setDataValidation(SpreadsheetApp.newDataValidation()
-      .requireValueInList(["全プラン"].concat(PLAN_LIST), true).setAllowInvalid(false).build());
     r.getRange("F2:F500").setDataValidation(SpreadsheetApp.newDataValidation()
       .requireValueInList(["受付中", "満席", "停止"], true).setAllowInvalid(false).build());
     r.getRange("B2:C500").setNumberFormat("yyyy/mm/dd");
@@ -130,12 +133,16 @@ function ensureSheets_() {
     c.appendRow(["プラン", "何日前まで受付(1=前日まで)", "メモ"]);
     c.appendRow(["全体", 1, "全プラン共通。プラン別の行があればそちらが優先"]);
     c.setFrozenRows(1);
-    c.getRange("A2:A200").setDataValidation(SpreadsheetApp.newDataValidation()
-      .requireValueInList(["全体"].concat(PLAN_LIST), true).setAllowInvalid(false).build());
     c.setColumnWidth(1, 360);
     c.setColumnWidth(2, 200);
     c.getRange("A1:C1").setFontWeight("bold");
   }
+
+  // プランのドロップダウンは毎回作り直す(プランを追加したとき、Code.gs の PLAN_LIST を更新すれば反映される)
+  r.getRange("A2:A500").setDataValidation(SpreadsheetApp.newDataValidation()
+    .requireValueInList(["全プラン"].concat(PLAN_LIST), true).setAllowInvalid(false).build());
+  c.getRange("A2:A200").setDataValidation(SpreadsheetApp.newDataValidation()
+    .requireValueInList(["全体"].concat(PLAN_LIST), true).setAllowInvalid(false).build());
   return ss;
 }
 

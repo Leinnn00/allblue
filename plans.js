@@ -17,6 +17,14 @@ var LICENSE_OPTIONS = [
   { id: "jet", name: "ジェットスキー", price: 4500, per: "group" }
 ];
 
+/* クルージング用 */
+var MARINE_OPTIONS = [{ id: "alcohol", name: "お酒の飲み放題", price: 1300, per: "person" }].concat(LICENSE_OPTIONS);  // お酒の飲み放題 + 各種マリンスポーツ
+var CRUISE_MARINE_FAQ = ["Q. マリンスポーツも追加できますか？", "A. はい。パラセーリング・バナナボート・ジェットスキーをオプションで追加いただけます。"];
+var CRUISE_TIMELINE_BASE = [["08:30", "ホテルお迎え"], ["09:00", "出港"], ["10:00", "クルージング"], ["12:00", "船上ランチ"], ["14:00", "帰港に向けて出発"], ["15:00", "帰港・ホテルへ送迎"]];
+function CRUISE_TIMELINE_WATER(act) {
+  return [["08:30", "ホテルお迎え"], ["09:00", "出港"], ["10:00", "クルージング"], ["10:40", act], ["12:00", "船上ランチ"], ["14:00", "帰港に向けて出発"], ["15:00", "帰港・ホテルへ送迎"]];
+}
+
 var JINBE_OPTIONS = [];
 var JINBE_FAQ = [
   ["Q. 泳げなくても参加できますか？", "A. 泳ぎが苦手な方でも、ライフジャケットを使用するため問題なくご参加いただけます。"],
@@ -346,13 +354,91 @@ var PLANS = {
       { id: "banana", name: "バナナボート", price: 2500, per: "person" },
       { id: "jet", name: "ジェットスキー", price: 4500, per: "group" }
     ]
+  },
+
+  /* ---------- クルージングツアー(価格・内容はすべて仮) ---------- */
+
+  "cruise-only": {
+    genre: "クルージング", genreUrl: "tours/cruise-packs.html",
+    title: "クルージングのみ", badge: "のんびり", img: "photos/island_hopping.jpg",
+    facts: [["所要時間", "約6時間"], ["集合場所", "お泊りのホテル"], ["対象年齢", "制限なし"], ["催行人数", "1名〜"]],
+    overview: "船に乗って、セブの海をのんびり満喫するクルージングツアー。潮風と景色を楽しみながら、ゆったり過ごしたい方におすすめです。",
+    tags: ["⛵ クルージング", "🍹 フリードリンク付き", "🚐 ホテル無料送迎", "👨‍🏫 日本人インストラクター同行"],
+    recommend: ["のんびり過ごしたい方", "お子様連れのご家族", "海に入らず景色を楽しみたい方"],
+    timeline: CRUISE_TIMELINE_BASE,
+    included: ["ホテル往復送迎", "クルージング", "船上ランチ", "フリードリンク(お菓子付き)", "日本人インストラクター同行", "保険料"],
+    excluded: ["個人的な飲食代", "お酒(オプションで飲み放題)", "マリンスポーツ(オプション)"],
+    faq: [["Q. 泳げなくても参加できますか？", "A. はい、大丈夫です。船上でのんびり過ごすプランなので、泳げなくても楽しめます。"], CRUISE_MARINE_FAQ, COMMON_PICKUP_FAQ],
+    rating: 4.8, reviews: 96, price: 5500, childPrice: 3500, unit: "名", peopleLabel: "人数",
+    options: MARINE_OPTIONS
+  },
+
+  "cruise-snorkel": {
+    genre: "クルージング", genreUrl: "tours/cruise-packs.html",
+    title: "クルージング + スノーケル", badge: "", img: "photos/island_hopping.jpg",
+    facts: [["所要時間", "約6時間"], ["集合場所", "お泊りのホテル"], ["対象年齢", "制限なし"], ["催行人数", "1名〜"]],
+    overview: "クルージングを楽しみながら、途中のポイントでスノーケリングも。色とりどりの魚を間近で観察できます。泳ぎに自信がない方も、ライフジャケットがあるので安心です。",
+    tags: ["⛵ クルージング", "🤿 スノーケリング付き", "🍹 フリードリンク付き", "🚐 ホテル無料送迎"],
+    recommend: ["景色も海の中も楽しみたい方", "お子様連れのご家族", "スノーケリング初心者の方"],
+    timeline: CRUISE_TIMELINE_WATER("スノーケリング"),
+    included: ["ホテル往復送迎", "クルージング", "スノーケリング器材レンタル", "船上ランチ", "フリードリンク(お菓子付き)", "日本人インストラクター同行", "保険料"],
+    excluded: ["個人的な飲食代", "お酒(オプションで飲み放題)", "マリンスポーツ(オプション)"],
+    faq: [["Q. スノーケリング未経験でも参加できますか？", "A. はい、大丈夫です。日本人インストラクターが丁寧にレクチャーします。"], CRUISE_MARINE_FAQ, COMMON_PICKUP_FAQ],
+    rating: 4.8, reviews: 118, price: 6500, childPrice: 4500, unit: "名", peopleLabel: "人数",
+    options: MARINE_OPTIONS
+  },
+
+  "cruise-skin": {
+    genre: "クルージング", genreUrl: "tours/cruise-packs.html",
+    title: "クルージング + スキンダイビング", badge: "", img: UNS_FUN,
+    facts: [["所要時間", "約6時間"], ["集合場所", "お泊りのホテル"], ["対象年齢", "10歳〜"], ["催行人数", "1名〜"]],
+    overview: "クルージングに、息を止めて潜るスキンダイビングをプラス。ボンベを使わず、身ひとつで海と一体になる体験ができます。インストラクターが基本から丁寧に指導します。",
+    tags: ["⛵ クルージング", "🌊 スキンダイビング付き", "🍹 フリードリンク付き", "🚐 ホテル無料送迎"],
+    recommend: ["もっと自由に海を楽しみたい方", "スノーケリングの次のステップに挑戦したい方", "ボンベを使わない潜水に興味がある方"],
+    timeline: CRUISE_TIMELINE_WATER("スキンダイビング"),
+    included: ["ホテル往復送迎", "クルージング", "スキンダイビング器材レンタル", "船上ランチ", "フリードリンク(お菓子付き)", "日本人インストラクター同行", "保険料"],
+    excluded: ["個人的な飲食代", "お酒(オプションで飲み放題)", "マリンスポーツ(オプション)"],
+    faq: [["Q. 泳ぎが苦手でも参加できますか？", "A. 基本的な水慣れが必要です。ご不安な場合は事前にご相談ください。"], CRUISE_MARINE_FAQ, COMMON_PICKUP_FAQ],
+    rating: 4.8, reviews: 52, price: 8000, childPrice: null, unit: "名", peopleLabel: "人数",
+    options: MARINE_OPTIONS
+  },
+
+  "cruise-trial": {
+    genre: "クルージング", genreUrl: "tours/cruise-packs.html",
+    title: "クルージング + 体験ダイビング", badge: "初めてのダイビングに", img: UNS_TRIAL,
+    facts: [["所要時間", "約6時間"], ["集合場所", "お泊りのホテル"], ["対象年齢", "8歳〜"], ["催行人数", "1名〜"]],
+    overview: "クルージングを楽しみながら、体験ダイビングにも挑戦できるプラン。ダイビングが初めての方でも、日本人インストラクターがマンツーマンでサポートするので安心です。",
+    tags: ["⛵ クルージング", "🔰 体験ダイビング1本", "🍹 フリードリンク付き", "🚐 ホテル無料送迎"],
+    recommend: ["初めてのダイビングに挑戦したい方", "のんびりも冒険もどちらも楽しみたい方", "ご家族・カップルでの旅行に"],
+    timeline: CRUISE_TIMELINE_WATER("体験ダイビング(1本)"),
+    included: ["ホテル往復送迎", "クルージング", "器材一式レンタル", "体験ダイビング1本", "船上ランチ", "フリードリンク(お菓子付き)", "日本人インストラクター同行", "保険料"],
+    excluded: ["個人的な飲食代", "お酒(オプションで飲み放題)", "マリンスポーツ(オプション)"],
+    faq: [["Q. 泳げなくても参加できますか？", "A. はい、大丈夫です。インストラクターがサポートし、セブの海を堪能することが出来ます。"], CRUISE_MARINE_FAQ, COMMON_PICKUP_FAQ],
+    rating: 4.9, reviews: 74, price: 11200, childPrice: 9200, unit: "名", peopleLabel: "人数",
+    options: MARINE_OPTIONS
+  },
+
+  "cruise-fun": {
+    genre: "クルージング", genreUrl: "tours/cruise-packs.html",
+    title: "クルージング + ファンダイビング", badge: "ライセンス保持者向け", img: UNS_FUN,
+    notice: "ファンダイビングは認定ライセンス(Cカード)をお持ちの方限定です。ライセンスをお持ちでない方は体験ダイビングのプランをご利用ください。",
+    facts: [["所要時間", "約6時間"], ["集合場所", "お泊りのホテル"], ["参加条件", "認定ライセンス保持者"], ["催行人数", "1名〜"]],
+    overview: "クルージングを楽しみながら、ファンダイビングも満喫できるプラン。船上でのんびり過ごす時間と、海の中の時間のどちらも味わえます。器材はすべてレンタル完備です。",
+    tags: ["⛵ クルージング", "🐠 ファンダイビング1本", "🍹 フリードリンク付き", "🚐 ホテル無料送迎"],
+    recommend: ["ダイビングも船の時間も楽しみたい方", "ダイバーと、ダイビングをしない同行者のグループ", "のんびり潜りたい方"],
+    timeline: CRUISE_TIMELINE_WATER("ファンダイビング(1本)"),
+    included: ["ホテル往復送迎", "クルージング", "器材一式レンタル", "ファンダイビング1本", "船上ランチ", "フリードリンク(お菓子付き)", "日本人インストラクター同行", "保険料"],
+    excluded: ["個人的な飲食代", "お酒(オプションで飲み放題)", "マリンスポーツ(オプション)"],
+    faq: [["Q. ブランクがあっても潜れますか？", "A. 久しぶりの方は、インストラクターが安全に配慮してご案内します。ご不安な点は事前にご相談ください。"], CRUISE_MARINE_FAQ, COMMON_PICKUP_FAQ],
+    rating: 4.9, reviews: 41, price: 11000, childPrice: null, unit: "名", peopleLabel: "人数",
+    options: MARINE_OPTIONS
   }
 
 };
 
 /* ---- 全プラン共通のよくある質問(水中を楽しむプランのみ。マリンスポーツ単体は除く) ---- */
 var CAMERA_FAQ = ["Q. 水中カメラのレンタルは可能ですか？", "A. レンタルはございませんが、水中カメラの扱いに長けたインストラクターが同行し、撮影いたします。"];
-var NO_CAMERA_FAQ_IDS = ["para", "jet", "banana"];
+var NO_CAMERA_FAQ_IDS = ["para", "jet", "banana", "cruise-only"];
 Object.keys(PLANS).forEach(function (k) {
   if (NO_CAMERA_FAQ_IDS.indexOf(k) === -1) PLANS[k].faq = PLANS[k].faq.concat([CAMERA_FAQ]);
 });

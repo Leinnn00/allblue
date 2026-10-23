@@ -57,8 +57,8 @@
   .cal-nav:disabled{opacity:.3;cursor:default;}
   .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
   .cal-dow{text-align:center;font-size:12px;color:var(--muted);padding:4px 0;}
-  .cal-dow.sun{color:#c93f24;} .cal-dow.sat{color:#1c74b3;}
-  .cal-day{height:50px;border:1px solid transparent;background:#fbf7ef;border-radius:10px;font:inherit;font-size:14px;color:var(--ink);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2;padding:0;}
+  .cal-dow.sun{color:#c93f24;} .cal-dow.sat{color:var(--ocean);}
+  .cal-day{height:50px;border:1px solid transparent;background:var(--sand);border-radius:10px;font:inherit;font-size:14px;color:var(--ink);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.2;padding:0;}
   .cal-day .dp{font-size:9.5px;color:var(--muted);min-height:11px;}
   .cal-day.sel .dp{color:#fff;}
   .cal-day:disabled .dp.ng{color:#a32d2d;font-weight:700;}
@@ -87,14 +87,14 @@
   footer{background:var(--navy);color:#c9d9e6;padding:32px 0;margin-top:60px;text-align:center;font-size:13px;}
   footer a{color:#aec3d4;}
 </style>
+<link rel="stylesheet" href="theme.css">
 </head>
 <body>
 
 <header>
   <div class="nav">
     <a class="brand" href="index.html">
-      <div class="mark">AB</div>
-      <div><div class="name">all blue</div><div class="sub">SCUBA &amp; MARINESPORTS CLUB CEBU</div></div>
+      <img src="photos/allblue_logo_trim.png" alt="all blue SCUBA &amp; MARINESPORTS CLUB" style="height:42px;width:auto;display:block;">
     </a>
     <div class="nav-links">
       <a href="index.html#ranking">おすすめ</a>
@@ -109,7 +109,7 @@
   <div class="box">
     <h1>お申込み・お問い合わせ</h1>
     <p>お申込みのツアー：<span id="tourName">ツアーを選択してください</span></p>
-    <div id="summaryBox" style="display:none;margin-top:12px;background:#fbf7ef;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13.5px;color:var(--ink);text-align:left;">
+    <div id="summaryBox" style="display:none;margin-top:12px;background:var(--sand);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13.5px;color:var(--ink);text-align:left;">
       <b style="color:var(--navy)">選択内容</b><br><span id="summary"></span>
     </div>
     <div class="cal">
