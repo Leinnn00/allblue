@@ -142,10 +142,12 @@
     .pillar .txt{max-width:100%;padding:26px 22px;}
     .pillar h3{font-size:22px;}
     .pillar svg.scene{opacity:.45;}
-    .pillar.photo .photo-bg{width:100%;}
-    .pillar.dark.photo .photo-bg::after{background:rgba(26,53,96,.58);}
-    .pillar.light.photo .photo-bg{width:100%;}
-    .pillar.light.photo .photo-bg::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.8);}
+    /* スマホ: 写真を上の帯にして、下の文章側へグラデーションでなじませる */
+    .pillar.photo{min-height:0;}
+    .pillar.photo .photo-bg{position:relative;top:auto;right:auto;bottom:auto;width:100%;height:190px;}
+    .pillar.dark.photo .photo-bg::after{background:linear-gradient(180deg,rgba(26,53,96,0) 35%,rgba(26,53,96,.7) 78%,#1a3560 100%);}
+    .pillar.light.photo .photo-bg::after{background:linear-gradient(180deg,rgba(255,255,255,0) 35%,rgba(255,255,255,.75) 78%,#fff 100%);}
+    .pillar.photo .txt{margin-top:-30px;padding-top:0;}
   }
 
   /* purpose menu */
