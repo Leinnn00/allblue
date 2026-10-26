@@ -1,0 +1,98 @@
+/* =====================================================
+   見た目の仕上げ(トップページ用)
+   ・絵文字に頼らない / 影や角丸を控えめに / 文字の強弱を大きく / 余白を広く
+   ・コーラル(赤橙)は予約ボタンなどのアクセントだけに使う
+   元に戻すときは、index.html の <link rel="stylesheet" href="polish.css"> の行を消す
+   (※絵文字の削除など、HTML側の変更は GitHub Desktop の履歴から戻せます)
+   ===================================================== */
+
+html{scroll-behavior:smooth;}
+body{-webkit-font-smoothing:antialiased;letter-spacing:.02em;}
+
+/* ---------- ヘッダー ---------- */
+header{background:rgba(255,255,255,.92);-webkit-backdrop-filter:saturate(1.4) blur(10px);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid rgba(0,0,0,.06);}
+.nav-links a{letter-spacing:.06em;}
+
+/* ---------- ヒーロー ---------- */
+.hero-eyebrow{background:none;border:none;-webkit-backdrop-filter:none;backdrop-filter:none;padding:0;border-radius:0;font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;letter-spacing:.34em;opacity:.95;margin-bottom:24px;}
+.hero h1{font-weight:900;letter-spacing:.01em;text-shadow:0 2px 28px rgba(0,0,0,.38);}
+.hero p.lead{line-height:1.95;text-shadow:0 1px 16px rgba(0,0,0,.5);}
+.btn-primary{box-shadow:0 8px 24px rgba(0,0,0,.28);letter-spacing:.08em;}
+@media (min-width:861px){
+  .hero{height:min(760px,88vh);min-height:600px;}
+  .hero h1{font-size:64px;line-height:1.3;}
+  .hero p.lead{font-size:17px;max-width:640px;margin-top:24px;}
+  .hero-btns{margin-top:44px;}
+}
+
+/* ---------- ヒーロー動画(スマホだけ。JSで追加される) ---------- */
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
+.hero.has-video .slide,.hero.has-video .sl-arrow,.hero.has-video .sl-dots{display:none;}
+
+/* ---------- 実績ストリップ ---------- */
+.strength-grid{gap:0;padding:6px 0;border-radius:20px;box-shadow:0 1px 0 rgba(0,0,0,.04),0 20px 50px rgba(15,40,70,.10);}
+.strength{padding:26px 22px;}
+.strength + .strength{border-left:1px solid var(--line);}
+.strength .big{font-size:36px;font-weight:700;letter-spacing:.01em;margin-top:0;}
+.strength .big small{font-size:14px;margin-left:2px;font-weight:600;}
+.strength h3{font-size:14px;letter-spacing:.08em;margin-top:8px;}
+.strength p{line-height:1.8;}
+
+/* ---------- セクション見出し ---------- */
+.sec-tag{display:inline-flex;align-items:center;gap:12px;font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;letter-spacing:.3em;color:var(--ocean);}
+.sec-tag::before{content:"";width:28px;height:1px;background:currentColor;}
+.sec-title{font-weight:900;letter-spacing:.03em;}
+.intro h2{font-weight:900;letter-spacing:.03em;}
+@media (min-width:861px){
+  .sec-title{font-size:40px;}
+  .intro h2{font-size:34px;}
+}
+
+/* ---------- 目的別メニュー(絵文字をやめて、番号と矢印に) ---------- */
+.purpose-grid{counter-reset:purpose;}
+.purpose{counter-increment:purpose;border-radius:14px;box-shadow:none;padding:24px 26px;gap:18px;transition:border-color .2s,background .2s;}
+.purpose::before{content:counter(purpose,decimal-leading-zero);font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;letter-spacing:.12em;color:var(--ocean);}
+.purpose::after{content:"→";margin-left:auto;font-size:18px;color:var(--ocean);transition:transform .25s;}
+.purpose:hover{box-shadow:none;transform:none;border-color:var(--ocean);}
+.purpose:hover::after{transform:translateX(5px);}
+.purpose .want{font-weight:900;letter-spacing:.04em;}
+.purpose .go{color:var(--muted);font-weight:500;}
+
+/* ---------- ツアーカード ---------- */
+.tour-card{border-radius:14px;}
+.tour-card:hover{transform:none;box-shadow:0 18px 40px rgba(15,40,70,.10);}
+.tour-photo{overflow:hidden;}
+.tour-photo img{transition:transform .9s cubic-bezier(.2,.7,.2,1);}
+.tour-card:hover .tour-photo img{transform:scale(1.06);}
+.tour-photo .badge{background:rgba(255,255,255,.96);color:var(--navy);font-weight:700;letter-spacing:.08em;border-radius:3px;padding:5px 10px;}
+.tour-tags{letter-spacing:.08em;}
+.tour-title{font-weight:900;letter-spacing:.03em;}
+.tour-feats > div{position:relative;padding-left:16px;line-height:1.6;}
+.tour-feats > div::before{content:"";position:absolute;left:0;top:.85em;width:8px;height:1px;background:var(--ocean);}
+.tour-foot{border-top:1px solid var(--line);}
+.price{color:var(--navy);letter-spacing:.01em;}
+
+/* ---------- ランキング ---------- */
+.rank-no{box-shadow:none;background:var(--navy);width:42px;height:42px;font-size:19px;}
+.rank-no.r2,.rank-no.r3{background:var(--navy);}
+
+/* ---------- 強みカード・その他の面 ---------- */
+.pillar{border-radius:18px;box-shadow:0 1px 0 rgba(0,0,0,.04),0 16px 36px rgba(15,40,70,.08);}
+.pillar h3{font-weight:900;letter-spacing:.04em;}
+.about{border-radius:24px;}
+.about h2{font-weight:900;letter-spacing:.03em;}
+.review-card,.staff-card,.access-info{border-radius:14px;}
+.access-map{border-radius:14px;}
+.ctaband{border-radius:24px;}
+.ctaband h2{font-weight:900;letter-spacing:.04em;}
+.btn-web{display:inline-block;}
+.access-info .ai b{letter-spacing:.06em;}
+
+/* ---------- スマホ ---------- */
+@media (max-width:860px){
+  .strength + .strength{border-left:none;}
+  .strength{padding:18px 12px;}
+  .strength-grid{padding:4px 0;}
+  .hero-eyebrow{letter-spacing:.26em;margin-bottom:16px;}
+  .purpose{padding:18px 18px;}
+}
