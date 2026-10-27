@@ -95,6 +95,26 @@ header{background:rgba(255,255,255,.92);-webkit-backdrop-filter:saturate(1.4) bl
 .ig-btn{display:inline-block;border:1px solid var(--navy);color:var(--navy);font-weight:700;font-size:14px;letter-spacing:.06em;padding:14px 28px;border-radius:30px;transition:background .2s,color .2s;}
 .ig-btn:hover{background:var(--navy);color:#fff;}
 
+/* ---------- 日本語の折り返し(1文字だけ残る行を減らす) ---------- */
+h1,h2,h3,.lead,.want,.tour-title{text-wrap:balance;word-break:auto-phrase;line-break:strict;}
+p,.tour-feats > div,.about-feats .f{text-wrap:pretty;word-break:auto-phrase;line-break:strict;}
+
+/* ---------- スクロール表示(ui.js) ---------- */
+.js-reveal .rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .8s cubic-bezier(.2,.7,.2,1),box-shadow .2s,border-color .2s;}
+.js-reveal .rv.rv-in{opacity:1;transform:none;}
+.js-reveal .rv:nth-child(3n+2){transition-delay:.08s;}
+.js-reveal .rv:nth-child(3n+3){transition-delay:.16s;}
+
+/* ---------- スマホの固定バー(ui.js) ---------- */
+.sticky-cta{display:none;}
+@media (max-width:860px){
+  .sticky-cta{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid rgba(0,0,0,.08);}
+  .sticky-cta a{flex:1;text-align:center;font-weight:700;font-size:14px;letter-spacing:.06em;padding:13px 10px;border-radius:30px;color:#fff;}
+  .sc-line{background:#06C755;}
+  .sc-mail{background:var(--navy);}
+  body{padding-bottom:76px;}
+}
+
 /* ---------- スマホ ---------- */
 @media (max-width:860px){
   .strength + .strength{border-left:none;}

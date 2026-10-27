@@ -98,7 +98,7 @@ var PLANS = {
 
   "island-3": {
     genre: "アイランドホッピング", genreUrl: "tours/island-packs.html",
-    title: "アイランドホッピング3島めぐり", badge: "映え度No.1", img: "photos/island_hopping.jpg",
+    title: "アイランドホッピング3島めぐり", badge: "映え度No.1", img: "photos/island_hopping_web.jpg",
     facts: [["所要時間", "7時間(9:00〜16:00)"], ["集合場所", "お泊りのホテル"], ["対象年齢", "制限なし"], ["催行人数", "1名〜"]],
     overview: "コバルトブルーの海に浮かぶナルスアン島・パンダノン島・ヒルトゥガン島の離島3島を1日で巡る、一番満足度の高い欲張りツアー。透明度抜群の海洋保護区でのシュノーケリングはもちろん、上陸してのBBQランチやフリードリンクも付いて大満足の内容です。日本人インストラクターが同行するので、島の魅力を存分に楽しんでいただけます。",
     tags: ["離島3島めぐり", "BBQランチ付き", "海洋保護区でスノーケル", "日本人インストラクター同行"],
@@ -120,7 +120,7 @@ var PLANS = {
 
   "island-2": {
     genre: "アイランドホッピング", genreUrl: "tours/island-packs.html",
-    title: "アイランドホッピング2島めぐり", badge: "", img: "photos/island_hopping.jpg",
+    title: "アイランドホッピング2島めぐり", badge: "", img: "photos/island_hopping_web.jpg",
     facts: [["所要時間", "約6時間"], ["集合場所", "お泊りのホテル"], ["対象年齢", "制限なし"], ["催行人数", "1名〜"]],
     overview: "ヒルトゥガン島とパンダノン島の2島をのんびり巡るアイランドホッピング。透明度抜群の海でシュノーケリングを楽しんだあとは、ビーチでBBQランチ。少しゆったりめのスケジュールで楽しみたい方におすすめです。",
     tags: ["離島2島めぐり", "BBQランチ付き", "海洋保護区でスノーケル", "日本人インストラクター同行"],
@@ -245,7 +245,7 @@ var PLANS = {
 
   "para": {
     genre: "マリンスポーツ", genreUrl: "tours/marine-packs.html",
-    title: "パラセーリング", badge: "絶景", img: "photos/jetski.jpg",
+    title: "パラセーリング", badge: "絶景", img: "photos/jetski_web.jpg",
     facts: [["所要時間", "約1時間"], ["集合場所", "Vistamarリゾート施設内"], ["対象年齢", "要確認"], ["催行人数", "1名〜"]],
     overview: "空から眺めるセブの海は格別。リゾート施設内から出発するので、移動もなくお手軽に楽しめます。ご家族やカップルにも人気のアクティビティです。",
     tags: ["空から絶景", "家族・カップルに人気", "午後スタート"],
@@ -263,7 +263,7 @@ var PLANS = {
 
   "jet": {
     genre: "マリンスポーツ", genreUrl: "tours/marine-packs.html",
-    title: "ジェットスキー", badge: "スリル満点", img: "photos/jetski.jpg",
+    title: "ジェットスキー", badge: "スリル満点", img: "photos/jetski_web.jpg",
     facts: [["所要時間", "約15分"], ["集合場所", "Vistamarリゾート施設内"], ["対象年齢", "要確認"], ["催行人数", "1台〜"]],
     overview: "海を駆け抜ける爽快感を味わえるジェットスキー。スタッフがしっかりレクチャーするので、初めての方も安心です。",
     tags: ["爽快感", "レクチャーあり", "午後スタート"],
@@ -281,7 +281,7 @@ var PLANS = {
 
   "banana": {
     genre: "マリンスポーツ", genreUrl: "tours/marine-packs.html",
-    title: "バナナボート", badge: "グループにおすすめ", img: "photos/jetski.jpg",
+    title: "バナナボート", badge: "グループにおすすめ", img: "photos/jetski_web.jpg",
     facts: [["所要時間", "約15分"], ["集合場所", "Vistamarリゾート施設内"], ["対象年齢", "要確認"], ["催行人数", "1名〜"]],
     overview: "みんなで盛り上がる定番のマリンアクティビティ。5人乗りOKで、ご家族やお友達グループにぴったりです。",
     tags: ["定番アクティビティ", "5人乗りOK", "午後スタート"],
@@ -318,7 +318,7 @@ var PLANS = {
 
   "trial-island2": {
     genre: "体験ダイビング", genreUrl: "tours/trial-packs.html",
-    title: "体験ダイビング1dive + アイランドホッピング2島めぐり", badge: "欲張りセット", img: "photos/island_hopping.jpg",
+    title: "体験ダイビング1dive + アイランドホッピング2島めぐり", badge: "欲張りセット", img: "photos/island_hopping_web.jpg",
     facts: [["所要時間", "1日"], ["集合場所", "お泊りのホテル"], ["対象年齢", "8歳〜"], ["催行人数", "1名〜"]],
     overview: "体験ダイビング1本と、離島2島めぐりをセットにした1日プラン。透明度抜群の海でスクーバダイビングをし、BBQランチも楽しめます。ダイビングが初めての方にもおすすめです。",
     tags: ["体験ダイビング1本", "離島2島めぐり", "BBQランチ付き", "ホテル無料送迎"],
@@ -338,7 +338,7 @@ var PLANS = {
 
   "trial-island3": {
     genre: "体験ダイビング", genreUrl: "tours/trial-packs.html",
-    title: "体験ダイビング1dive + アイランドホッピング3島めぐり", badge: "一番満足", img: "photos/island_hopping.jpg",
+    title: "体験ダイビング1dive + アイランドホッピング3島めぐり", badge: "一番満足", img: "photos/island_hopping_web.jpg",
     facts: [["所要時間", "1日"], ["集合場所", "お泊りのホテル"], ["対象年齢", "8歳〜"], ["催行人数", "1名〜"]],
     overview: "体験ダイビング1本と、離島3島めぐりをセットにした、一番満足度の高い1日プラン。ナルスアン島・パンダノン島・ヒルトゥガン島を巡り、BBQランチやフリードリンクも楽しめます。",
     tags: ["体験ダイビング1本", "離島3島めぐり", "BBQランチ付き", "ホテル無料送迎"],
@@ -360,7 +360,7 @@ var PLANS = {
 
   "cruise-only": {
     genre: "クルージング", genreUrl: "tours/cruise-packs.html",
-    title: "クルージングのみ", badge: "のんびり", img: "photos/island_hopping.jpg",
+    title: "クルージングのみ", badge: "のんびり", img: "photos/island_hopping_web.jpg",
     facts: [["所要時間", "約6時間"], ["集合場所", "お泊りのホテル"], ["対象年齢", "制限なし"], ["催行人数", "1名〜"]],
     overview: "船に乗って、セブの海をのんびり満喫するクルージングツアー。潮風と景色を楽しみながら、ゆったり過ごしたい方におすすめです。",
     tags: ["クルージング", "フリードリンク付き", "ホテル無料送迎", "日本人インストラクター同行"],
@@ -375,7 +375,7 @@ var PLANS = {
 
   "cruise-snorkel": {
     genre: "クルージング", genreUrl: "tours/cruise-packs.html",
-    title: "クルージング + スノーケル", badge: "", img: "photos/island_hopping.jpg",
+    title: "クルージング + スノーケル", badge: "", img: "photos/island_hopping_web.jpg",
     facts: [["所要時間", "約6時間"], ["集合場所", "お泊りのホテル"], ["対象年齢", "制限なし"], ["催行人数", "1名〜"]],
     overview: "クルージングを楽しみながら、途中のポイントでスノーケリングも。色とりどりの魚を間近で観察できます。泳ぎに自信がない方も、ライフジャケットがあるので安心です。",
     tags: ["クルージング", "スノーケリング付き", "フリードリンク付き", "ホテル無料送迎"],
