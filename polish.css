@@ -88,6 +88,13 @@ header{background:rgba(255,255,255,.92);-webkit-backdrop-filter:saturate(1.4) bl
 .btn-web{display:inline-block;}
 .access-info .ai b{letter-spacing:.06em;}
 
+/* ---------- Instagram ---------- */
+.ig-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(326px,1fr));gap:24px;justify-items:center;align-items:start;}
+.ig-grid .instagram-media{margin:0 !important;width:100%;max-width:400px !important;min-width:300px !important;}
+.ig-more{text-align:center;margin-top:36px;}
+.ig-btn{display:inline-block;border:1px solid var(--navy);color:var(--navy);font-weight:700;font-size:14px;letter-spacing:.06em;padding:14px 28px;border-radius:30px;transition:background .2s,color .2s;}
+.ig-btn:hover{background:var(--navy);color:#fff;}
+
 /* ---------- スマホ ---------- */
 @media (max-width:860px){
   .strength + .strength{border-left:none;}

@@ -88,6 +88,7 @@
   footer a{color:#aec3d4;}
 </style>
 <link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="polish-pages.css">
 </head>
 <body>
 
@@ -101,7 +102,7 @@
       <a href="index.html#tours">ツアー一覧</a>
       <a href="index.html#staff">スタッフ</a>
     </div>
-    <a class="btn-line" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">💬 LINEで予約</a>
+    <a class="btn-line" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">LINEで予約</a>
   </div>
 </header>
 
@@ -113,7 +114,7 @@
       <b style="color:var(--navy)">選択内容</b><br><span id="summary"></span>
     </div>
     <div class="cal">
-      <div class="cal-title">📅 ご希望の日程を選んでください</div>
+      <div class="cal-title">ご希望の日程を選んでください</div>
       <div class="cal-head">
         <button type="button" class="cal-nav" id="calPrev" aria-label="前の月">‹</button>
         <b id="calMonth"></b>
@@ -128,13 +129,13 @@
 
     <a class="method line" id="lineBtn" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">
       <div>
-        <div class="t" id="lineBtnT">💬 LINEで予約</div>
+        <div class="t" id="lineBtnT">LINEで予約</div>
         <div class="d" id="lineBtnD">24時間受付・一番早いお問い合わせ方法です</div>
       </div>
       <div class="go">開く</div>
     </a>
     <form class="mailform" id="mailForm" novalidate>
-      <div class="t">✉️ メールで予約リクエスト</div>
+      <div class="t">メールで予約リクエスト</div>
       <div class="d">LINEをお使いでない方はこちら。上のカレンダーで希望日を選んでから送信してください。</div>
       <label>お名前<input name="name" required maxlength="60" autocomplete="name"></label>
       <label>メールアドレス<input name="email" type="email" required maxlength="100" autocomplete="email"></label>
@@ -147,7 +148,7 @@
     </form>
     <div class="method">
       <div>
-        <div class="t">📞 お電話でのお問い合わせ</div>
+        <div class="t">お電話でのお問い合わせ</div>
         <div class="d">現地スタッフに直接ご相談いただけます</div>
       </div>
       <div class="go">開く</div>
@@ -302,7 +303,7 @@
     var btn = document.getElementById("lineBtn");
     if (!selected) {
       btn.href = "https://line.me/R/ti/p/@513pefsy";
-      document.getElementById("lineBtnT").textContent = "💬 LINEで予約";
+      document.getElementById("lineBtnT").textContent = "LINEで予約";
       document.getElementById("lineBtnD").textContent = "24時間受付・一番早いお問い合わせ方法です";
       return;
     }
@@ -312,7 +313,7 @@
     if (summaryTxt) lines.push("内容：" + summaryTxt);
     lines.push("※この内容で送信します。スタッフが確認後、ご連絡します。");
     btn.href = "https://line.me/R/oaMessage/@513pefsy/?" + encodeURIComponent(lines.join("\n"));
-    document.getElementById("lineBtnT").textContent = "💬 この内容でLINEに送る";
+    document.getElementById("lineBtnT").textContent = "この内容でLINEに送る";
     document.getElementById("lineBtnD").textContent = "ツアー・希望日・人数が入力済みの状態でLINEが開きます";
   }
 

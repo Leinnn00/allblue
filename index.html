@@ -695,6 +695,18 @@
   </div>
 </section>
 
+<section class="section" id="instagram">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">INSTAGRAM</div>
+      <h2 class="sec-title">現地の様子をお届け</h2>
+      <p class="sec-desc">ツアーの様子や、セブの海の日常を、Instagramで発信しています。</p>
+    </div>
+    <div class="ig-grid" id="igGrid"></div>
+    <div class="ig-more"><a class="ig-btn" href="https://www.instagram.com/all_blue_cebu/" target="_blank" rel="noopener">Instagramをもっと見る &nbsp;@all_blue_cebu</a></div>
+  </div>
+</section>
+
 <section class="section" id="voice">
   <div class="wrap">
     <div class="sec-head">
@@ -782,6 +794,41 @@
 </footer>
 
 <script src="slider.js"></script>
+<script>
+  // Instagram の投稿の埋め込み。
+  // 表示したい投稿のURL(投稿の「…」→「リンクをコピー」)を、下の IG_POSTS に追加する。
+  // 例: "https://www.instagram.com/reel/XXXXXXXXXXX/"  /  "https://www.instagram.com/p/XXXXXXXXXXX/"
+  // 空のままなら、投稿の枠は出ず、見出しとアカウントへのボタンだけが表示される。
+  var IG_POSTS = [
+    "https://www.instagram.com/reel/DZzcKRaN4pm/"
+  ];
+  (function () {
+    var grid = document.getElementById("igGrid");
+    if (!grid) return;
+    if (!IG_POSTS.length) { grid.style.display = "none"; return; }
+    IG_POSTS.forEach(function (url) {
+      var bq = document.createElement("blockquote");
+      bq.className = "instagram-media";
+      bq.setAttribute("data-instgrm-permalink", url);
+      bq.setAttribute("data-instgrm-version", "14");
+      bq.innerHTML = '<a href="' + url + '" target="_blank" rel="noopener">Instagramで見る</a>';
+      grid.appendChild(bq);
+    });
+    // 表示位置の近くまでスクロールされたときに、Instagramのスクリプトを読み込む(ページを軽くするため)
+    function load() {
+      if (window.__igLoaded) return; window.__igLoaded = true;
+      var s = document.createElement("script");
+      s.async = true; s.src = "https://www.instagram.com/embed.js";
+      document.body.appendChild(s);
+    }
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (es) {
+        if (es.some(function (e) { return e.isIntersecting; })) { load(); io.disconnect(); }
+      }, { rootMargin: "400px 0px" });
+      io.observe(document.getElementById("instagram"));
+    } else { load(); }
+  })();
+</script>
 <script>
   // ヒーロー動画: スマホ(縦画面)だけ、縦向きの動画を全画面で再生する。
   // PCや、動きを減らす設定・通信量の節約モードでは、写真のスライドのまま。

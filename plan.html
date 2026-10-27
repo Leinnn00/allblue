@@ -105,6 +105,7 @@
   }
 </style>
 <link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="polish-pages.css">
 </head>
 <body>
 
@@ -118,7 +119,7 @@
       <a href="index.html#tours">ツアー一覧</a>
       <a href="index.html#staff">スタッフ</a>
     </div>
-    <a class="btn-line" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">💬 LINEで予約</a>
+    <a class="btn-line" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">LINEで予約</a>
   </div>
 </header>
 
@@ -149,7 +150,7 @@
 
   var html = "";
   html += '<div class="breadcrumb"><a href="index.html">トップ</a> ／ <a href="index.html#tours">ツアー一覧</a> ／ <a href="' + p.genreUrl + '">' + p.genre + '</a> ／ ' + p.title + '</div>';
-  if (p.notice) html += '<div class="notice" style="background:#fdeaea;color:#a32d2d;font-weight:700;font-size:13.5px;">⚠️ ' + p.notice + '</div>';
+  if (p.notice) html += '<div class="notice" style="background:#fdeaea;color:#a32d2d;font-weight:700;font-size:13.5px;">' + p.notice + '</div>';
   html += '<div class="notice">※ 内容・料金は仮のサンプルです</div>';
   html += '<div class="detail-hero">' + (p.imgs || [p.img]).map(function(u){ return '<img class="slide" src="' + u + '" alt="' + p.title + '">'; }).join("") + '<div class="detail-hero-content">' + (p.badge ? '<div class="badge-row"><div class="badge">' + p.badge + '</div></div>' : '') + '<h1>' + p.title + '</h1></div></div>';
   html += '<div class="quickfacts">' + p.facts.map(function(f){ return '<div class="qf"><div class="label">' + f[0] + '</div><div class="value">' + f[1] + '</div></div>'; }).join("") + '</div>';
@@ -178,7 +179,7 @@
   }
   html += '<div class="total"><div class="lines" id="lines"></div><div class="sum"><span>合計(税込・目安)</span><b id="sum"></b></div></div>';
   html += '<a class="cta-book" id="book" href="#">この内容で申し込む</a>';
-  html += '<a class="cta-line" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">💬 LINEで質問する</a>';
+  html += '<a class="cta-line" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">LINEで質問する</a>';
   html += '</div></div></div>';
   app.innerHTML = html;
   initSlider(app.querySelector(".detail-hero"), 5000);
