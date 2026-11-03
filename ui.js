@@ -1,6 +1,6 @@
 /* 画面の動きと使いやすさ(トップ・パック一覧ページ共通)
    1) スクロールに合わせて、要素がふわっと表示される
-   2) スマホで、画面の下に「LINEで予約 / メールで予約」の固定バーを出す
+   2) スマホで、画面の下に「LINEで問い合わせる / メールで問い合わせ」の固定バーを出す
    動きを減らす設定の端末では、1) は行わない。JSが動かない場合も、内容はそのまま表示される。 */
 (function () {
   var d = document, root = d.documentElement;
@@ -28,7 +28,7 @@
   var bar = d.createElement("div");
   bar.className = "sticky-cta";
   bar.innerHTML =
-    '<a class="sc-line" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">LINEで予約</a>' +
-    '<a class="sc-mail" href="' + base + 'apply.html">メールで予約</a>';
+    '<a class="sc-line" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">LINEで問い合わせる</a>' +
+    '<a class="sc-mail" href="' + base + 'apply.html">メールで問い合わせ</a>';
   d.body.appendChild(bar);
 })();

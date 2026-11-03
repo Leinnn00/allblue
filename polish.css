@@ -123,3 +123,112 @@ p,.tour-feats > div,.about-feats .f{text-wrap:pretty;word-break:auto-phrase;line
   .hero-eyebrow{letter-spacing:.26em;margin-bottom:16px;}
   .purpose{padding:18px 18px;}
 }
+
+/* hero medals */
+.hero-medals{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;justify-content:center;}
+.medal{width:104px;height:104px;border-radius:50%;border:1.5px solid rgba(232,200,120,.9);background:rgba(20,35,50,.35);backdrop-filter:blur(4px);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;box-shadow:inset 0 0 0 4px rgba(255,255,255,.06);}
+.medal b{font-size:21px;line-height:1.1;font-weight:700;color:#F3DDA0;white-space:nowrap;}
+.medal b small{font-size:11px;margin-left:1px;}
+.medal span{font-size:10.5px;margin-top:5px;letter-spacing:.04em;}
+@media (max-width:860px){.hero-medals{gap:8px;margin-top:20px;}.medal{width:76px;height:76px;}.medal b{font-size:15px;}.medal span{font-size:8.5px;}}
+
+/* pillars: 4 compact cards in one row */
+.pillars{grid-template-columns:repeat(4,1fr);gap:14px;}
+.pillars .pillar{min-height:0;border-radius:14px;}
+.pillars .pillar.photo .photo-bg{position:relative;top:auto;right:auto;bottom:auto;width:100%;height:130px;}
+.pillars .pillar.light.photo .photo-bg::after{background:none;}
+.pillars .pillar .txt{max-width:100%;padding:14px 16px 18px;text-align:left;}
+.pillars .pillar .no{font-size:11px;}
+.pillars .pillar h3{font-size:16px;line-height:1.45;margin-top:4px;}
+@media (max-width:860px){
+  .pillars{grid-template-columns:1fr 1fr;gap:10px;}
+  .pillars .pillar.photo .photo-bg{height:100px;}
+  .pillars .pillar.photo .txt{margin-top:0;padding:10px 12px 14px;}
+  .pillars .pillar h3{font-size:13.5px;}
+  .pillars .pillar h3 br{display:none;}
+}
+
+/* meeting fix: want tiles + alternating sections */
+.sec-sand{background:var(--sand);} .sec-white{background:#fff;}
+.want-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;}
+.want-tile{position:relative;overflow:hidden;border-radius:14px;grid-column:span 3;aspect-ratio:4/3;display:block;background:#2F4156;}
+.want-tile:nth-child(n+5){grid-column:span 4;aspect-ratio:16/10;}
+.want-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.want-tile:hover img{transform:scale(1.06);}
+.want-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,30,45,0) 35%,rgba(15,30,45,.72) 100%);}
+.want-txt{position:absolute;left:0;right:0;bottom:0;padding:16px 18px;z-index:2;color:#fff;}
+.want-q{font-size:18px;font-weight:900;letter-spacing:.03em;line-height:1.4;text-shadow:0 1px 8px rgba(0,0,0,.35);}
+.want-go{font-size:12.5px;margin-top:4px;opacity:.92;}
+.btn-ghost{display:inline-block;margin-left:10px;padding:14px 28px;border:1.5px solid rgba(255,255,255,.85);color:#fff;border-radius:40px;font-weight:700;font-size:15px;}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
+.hero-btns .btn-ghost{margin-left:0;}
+@media (max-width:860px){
+  .want-grid{grid-template-columns:1fr 1fr;gap:10px;}
+  .want-tile,.want-tile:nth-child(n+5){grid-column:span 1;aspect-ratio:1/1;}
+  .want-tile:last-child{grid-column:span 2;aspect-ratio:16/8;}
+  .want-q{font-size:14px;} .want-txt{padding:12px;} .want-go{font-size:11px;}
+  .btn-ghost{padding:12px 20px;font-size:14px;}
+}
+
+/* concept band */
+.concept{position:relative;color:#fff;overflow:hidden;background:#16283a;}
+.concept-bg{position:absolute;inset:0;background-size:cover;background-position:center 40%;}
+.concept::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(14,28,42,.82) 0%,rgba(14,28,42,.55) 55%,rgba(14,28,42,.25) 100%);}
+.concept-in{position:relative;z-index:2;max-width:1080px;margin:0 auto;padding:110px 24px 90px;}
+.concept-tag{font-family:'Poppins',sans-serif;font-size:12px;letter-spacing:.3em;color:#F3DDA0;font-weight:600;}
+.concept h2{font-size:52px;line-height:1.35;font-weight:900;letter-spacing:.04em;margin-top:18px;}
+.concept p{margin-top:24px;font-size:16px;line-height:2;max-width:620px;color:rgba(255,255,255,.92);}
+.concept-list{list-style:none;margin:64px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
+.concept-list li{border-top:1px solid rgba(255,255,255,.45);padding-top:16px;font-size:16px;font-weight:700;line-height:1.6;letter-spacing:.04em;}
+.concept-list li span{display:block;font-family:'Poppins',sans-serif;font-size:30px;font-weight:500;color:#F3DDA0;margin-bottom:6px;letter-spacing:.02em;}
+@media (max-width:860px){
+  .concept-in{padding:64px 22px 56px;}
+  .concept::before{background:linear-gradient(180deg,rgba(14,28,42,.78),rgba(14,28,42,.6));}
+  .concept h2{font-size:30px;}
+  .concept p{font-size:14px;}
+  .concept p br{display:none;}
+  .concept-list{grid-template-columns:1fr 1fr;gap:20px 16px;margin-top:40px;}
+  .concept-list li{font-size:13.5px;}
+  .concept-list li span{font-size:22px;}
+}
+
+/* sticky hero: 下のセクションがヒーローに被さってくる */
+.hero{position:sticky;top:72px;z-index:0;}
+body > :where(section,div,footer):not(.hero):not(.sticky-cta){position:relative;z-index:1;}
+body > :where(section,div):not(.hero):not(.sticky-cta):not([class*="sec-"]):not(.concept):not(.ctaband):not(.about):not(#about){background-color:var(--sand);}
+@media (prefers-reduced-motion:reduce){.hero{position:relative;top:auto;}}
+
+/* hero: ロゴ + キャッチ (OGP風) */
+.hero .hero-logo{width:min(600px,78vw);height:auto;display:block;filter:drop-shadow(0 4px 24px rgba(0,0,0,.35));}
+.hero h1.hero-catch{font-size:34px;line-height:1.4;margin-top:22px;font-weight:700;letter-spacing:.08em;}
+.hero-eyebrow{margin-bottom:26px;}
+@media (min-width:861px){.hero h1.hero-catch{font-size:40px;}}
+@media (max-width:860px){.hero .hero-logo{width:min(300px,74vw);}.hero h1.hero-catch{font-size:19px;margin-top:14px;}}
+
+/* ABOUT: 背景の写真は固定、カードだけスクロールして被さる/隠れる */
+#about{background:#16283a;padding:120px 0;clip-path:inset(0);}
+#about::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(rgba(14,28,42,.45),rgba(14,28,42,.45)),url('photos/jinbe.jpg') center/cover no-repeat;}
+@media (max-width:860px){#about{padding:64px 0;}}
+@media (prefers-reduced-motion:reduce){#about::before{position:absolute;}}
+
+/* 予約帯: 周りは透過させない */
+.cta-wrap{display:flow-root;background:var(--sand);padding:0 0 8px;}
+/* ACCESS: 背景写真(HP素材7)は固定、内容だけスクロール */
+#access{background:#16283a;padding:110px 0;clip-path:inset(0);}
+#access::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(rgba(14,28,42,.4),rgba(14,28,42,.4)),url('photos/LINE_ALBUM_HP素材_261023_7.jpg') center/cover no-repeat;}
+#access .sec-title{color:#fff;}
+#access .sec-tag{color:#F3DDA0;}
+@media (max-width:860px){#access{padding:64px 0;}}
+@media (prefers-reduced-motion:reduce){#access::before{position:absolute;}}
+
+/* 予約帯: 上下に下地を足して自然につなぐ */
+.cta-wrap{padding:64px 0 64px;}
+body > footer{margin-top:0;position:relative;z-index:1;}
+
+/* フッターは元の紺背景に戻す(上の共通ルールで白く上書きされていた) */
+body > footer{background-color:var(--navy);color:#c9d9e6;}
+
+.want-badge{position:absolute;top:12px;left:12px;z-index:3;background:#F3DDA0;color:#2F4156;font-size:12px;font-weight:700;letter-spacing:.06em;padding:5px 12px;border-radius:20px;box-shadow:0 2px 8px rgba(0,0,0,.25);}
+@media (max-width:860px){.want-badge{top:8px;left:8px;font-size:10.5px;padding:4px 9px;}}
+
+.want-q,.want-go,.concept-list li,.concept p{text-wrap:balance;word-break:auto-phrase;line-break:strict;}

@@ -27,7 +27,7 @@
   h1,h2{font-weight:700;margin:0;}
   p{margin:0;}
   a{text-decoration:none;color:inherit;}
-  .wrap{max-width:640px;margin:0 auto;padding:0 24px;}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px;}
 
   header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1180px;margin:0 auto;}
@@ -74,6 +74,41 @@
   .cal-picked b{color:var(--coral-dark);}
   .cal-note{margin-top:6px;font-size:12px;color:var(--muted);}
 
+  /* calendar: 大きく・見やすく */
+  .cal{padding:26px 28px;border-radius:18px;box-shadow:0 10px 30px rgba(15,40,70,.06);}
+  .cal-titlerow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;}
+  .cal-title{font-size:17px;margin-bottom:0;}
+  .cal-today{border:1px solid var(--line);background:#fff;color:var(--navy);font:inherit;font-size:13px;font-weight:700;padding:7px 14px;border-radius:20px;cursor:pointer;}
+  .cal-today:hover{border-color:var(--coral);color:var(--coral-dark);}
+  .cal-head{margin-bottom:14px;}
+  .cal-head b{font-size:22px;letter-spacing:.04em;}
+  .cal-nav{width:44px;height:44px;font-size:20px;}
+  .cal-nav:hover:not(:disabled){background:var(--sand);}
+  .cal-grid{gap:6px;}
+  .cal-dow{font-size:13px;font-weight:700;padding:8px 0;}
+  .cal-day{height:84px;border-radius:12px;font-size:19px;font-weight:700;justify-content:center;gap:4px;}
+  .cal-day .dp{font-size:13px;font-weight:500;min-height:15px;}
+  .cal-day.sun .dn{color:#c93f24;} .cal-day.sat .dn{color:var(--ocean);}
+  .cal-day.sel .dn,.cal-day.sel .dp{color:#fff;}
+  .cal-day:disabled .dn{color:#c3c9cd;}
+  .cal-empty{height:84px;}
+  .cal-picked{margin-top:18px;font-size:16px;padding:12px 16px;background:var(--sand);border-radius:12px;}
+  .cal-note{font-size:12.5px;}
+
+  .cal-selects{display:flex;gap:10px;margin-bottom:16px;}
+  .cs{flex:1;position:relative;}
+  .cs::after{content:"▾";position:absolute;right:14px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--muted);font-size:14px;}
+  .cs select{width:100%;appearance:none;-webkit-appearance:none;font:inherit;font-size:17px;font-weight:700;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 34px 13px 16px;cursor:pointer;}
+  .cs select:hover,.cs select:focus{border-color:var(--coral);outline:none;}
+  @media (max-width:600px){.cs select{font-size:15px;padding:12px 26px 12px 12px;}.cal-selects{gap:6px;}}
+  @media (max-width:600px){
+    .cal{padding:16px 10px;}
+    .cal-grid{gap:3px;}
+    .cal-day{height:58px;font-size:16px;border-radius:9px;} .cal-day .dp{font-size:10.5px;} .cal-empty{height:58px;}
+    .cal-head b{font-size:19px;}
+    .box{padding:24px 14px;}
+  }
+
   /* mail form */
   .mailform{border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-top:24px;text-align:left;}
   .mailform .t{font-weight:700;font-size:15px;}
@@ -106,7 +141,7 @@
       <a href="index.html#tours">ツアー一覧</a>
       <a href="index.html#staff">スタッフ</a>
     </div>
-    <a class="btn-line" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">LINEで予約</a>
+    <a class="btn-line" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">LINEで問い合わせる</a>
   </div>
 </header>
 
@@ -118,11 +153,16 @@
       <b style="color:var(--navy)">選択内容</b><br><span id="summary"></span>
     </div>
     <div class="cal">
-      <div class="cal-title">ご希望の日程を選んでください</div>
+      <div class="cal-titlerow"><div class="cal-title">ご希望の日程を選んでください</div><button type="button" class="cal-today" id="calToday">今月へ戻る</button></div>
       <div class="cal-head">
         <button type="button" class="cal-nav" id="calPrev" aria-label="前の月">‹</button>
         <b id="calMonth"></b>
         <button type="button" class="cal-nav" id="calNext" aria-label="次の月">›</button>
+      </div>
+      <div class="cal-selects">
+        <label class="cs"><select id="selY" aria-label="年"></select></label>
+        <label class="cs"><select id="selM" aria-label="月"></select></label>
+        <label class="cs"><select id="selD" aria-label="日"></select></label>
       </div>
       <div class="cal-grid" id="calGrid"></div>
       <div class="cal-note" id="calPriceNote"></div>
@@ -133,13 +173,13 @@
 
     <a class="method line" id="lineBtn" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">
       <div>
-        <div class="t" id="lineBtnT">LINEで予約</div>
+        <div class="t" id="lineBtnT">LINEで問い合わせる</div>
         <div class="d" id="lineBtnD">24時間受付・一番早いお問い合わせ方法です</div>
       </div>
       <div class="go">開く</div>
     </a>
     <form class="mailform" id="mailForm" novalidate>
-      <div class="t">メールで予約リクエスト</div>
+      <div class="t">メールで問い合わせ</div>
       <div class="d">LINEをお使いでない方はこちら。上のカレンダーで希望日を選んでから送信してください。</div>
       <label>お名前<input name="name" required maxlength="60" autocomplete="name"></label>
       <label>メールアドレス<input name="email" type="email" required maxlength="100" autocomplete="email"></label>
@@ -178,7 +218,7 @@
   var plan = (typeof PLANS !== "undefined" && tour) ? PLANS[tour] : null;
   var tourTitle = "", summaryTxt = "";
   var ctx = null;                              // 人数・オプションの選択内容
-  var CONFIG = { rules: [], cutoff: [] };      // スプレッドシートから読み込む料金ルール・受付設定
+  var CONFIG = { rules: [], cutoff: [], taken: {} };      // スプレッドシートから読み込む料金ルール・受付設定
 
   // 選んだ日の料金(日別ルール)を反映した合計
   function calcTotal(key) {
@@ -256,6 +296,9 @@
         if (x.status) r.status = x.status;
       }
     });
+    // その日に確定しているツアーの種類が上限(インストラクター数)に達していたら、別のツアーは満席扱い
+    var tk = CONFIG.taken && CONFIG.taken[key];
+    if (tk && tk.indexOf(tour) === -1) r.status = "満席";
     return r;
   }
 
@@ -291,9 +334,10 @@
         if (st !== "受付中") { sub = st; ng = " ng"; }
         else if (plan) { sub = Number(info.adult != null ? info.adult : plan.price).toLocaleString("ja-JP"); }
       }
-      html += '<button type="button" class="cal-day' + (selected === key ? " sel" : "") + '" data-d="' + key + '"' + (bookable(d) ? "" : " disabled") + '><span class="dn">' + day + '</span><span class="dp' + ng + '">' + sub + "</span></button>";
+      html += '<button type="button" class="cal-day' + (d.getDay() === 0 ? " sun" : d.getDay() === 6 ? " sat" : "") + (selected === key ? " sel" : "") + '" data-d="' + key + '"' + (bookable(d) ? "" : " disabled") + '><span class="dn">' + day + '</span><span class="dp' + ng + '">' + sub + "</span></button>";
     }
     document.getElementById("calGrid").innerHTML = html;
+    syncSelects();
     document.getElementById("calPrev").disabled = view <= new Date(earliest.getFullYear(), earliest.getMonth(), 1);
     document.getElementById("calNext").disabled = view >= new Date(latest.getFullYear(), latest.getMonth(), 1);
   }
@@ -307,7 +351,7 @@
     var btn = document.getElementById("lineBtn");
     if (!selected) {
       btn.href = "https://line.me/R/ti/p/@513pefsy";
-      document.getElementById("lineBtnT").textContent = "LINEで予約";
+      document.getElementById("lineBtnT").textContent = "LINEで問い合わせる";
       document.getElementById("lineBtnD").textContent = "24時間受付・一番早いお問い合わせ方法です";
       return;
     }
@@ -321,20 +365,63 @@
     document.getElementById("lineBtnD").textContent = "ツアー・希望日・人数が入力済みの状態でLINEが開きます";
   }
 
-  document.getElementById("calGrid").addEventListener("click", function (e) {
-    var key = e.target.getAttribute && e.target.getAttribute("data-d");
-    if (!key) return;
+  function selectDay(key) {
     selected = key;
     document.getElementById("calPicked").innerHTML = "希望日：<b>" + dateLabel(key) + "</b>";
     renderCal();
     renderSummary(key);
     updateLine();
+  }
+  document.getElementById("calGrid").addEventListener("click", function (e) {
+    var b = e.target.closest && e.target.closest("[data-d]");
+    if (!b || b.disabled) return;
+    selectDay(b.getAttribute("data-d"));
   });
   document.getElementById("calPrev").addEventListener("click", function () { view = new Date(view.getFullYear(), view.getMonth() - 1, 1); renderCal(); });
   document.getElementById("calNext").addEventListener("click", function () { view = new Date(view.getFullYear(), view.getMonth() + 1, 1); renderCal(); });
+  // 年月日プルダウン
+  var DOWJ = ["日", "月", "火", "水", "木", "金", "土"];
+  function syncSelects() {
+    var sy = document.getElementById("selY"), sm = document.getElementById("selM"), sd = document.getElementById("selD");
+    var y0 = earliest.getFullYear(), y1 = latest.getFullYear(), yy = view.getFullYear(), mm = view.getMonth(), h = "";
+    for (var y = y0; y <= y1; y++) h += '<option value="' + y + '"' + (y === yy ? " selected" : "") + ">" + y + "年</option>";
+    sy.innerHTML = h;
+    h = "";
+    for (var m = 0; m < 12; m++) {
+      var f = new Date(yy, m, 1), l = new Date(yy, m + 1, 0);
+      h += '<option value="' + m + '"' + (m === mm ? " selected" : "") + ((l < earliest || f > latest) ? " disabled" : "") + ">" + (m + 1) + "月</option>";
+    }
+    sm.innerHTML = h;
+    var n = new Date(yy, mm + 1, 0).getDate(), selDay = "";
+    h = '<option value="">日を選択</option>';
+    for (var d = 1; d <= n; d++) {
+      var dt = new Date(yy, mm, d), key = ymd(dt);
+      var on = selected === key; if (on) selDay = key;
+      h += '<option value="' + key + '"' + (on ? " selected" : "") + (bookable(dt) ? "" : " disabled") + ">" + d + "日（" + DOWJ[dt.getDay()] + "）</option>";
+    }
+    sd.innerHTML = h;
+    if (!selDay) sd.value = "";
+  }
+  function firstOkMonth(y) {
+    for (var m = 0; m < 12; m++) { var a = new Date(y, m, 1), z = new Date(y, m + 1, 0); if (z >= earliest && a <= latest) return m; }
+    return 0;
+  }
+  document.getElementById("selY").addEventListener("change", function () {
+    var y = Number(this.value), m = view.getMonth();
+    var a = new Date(y, m, 1), z = new Date(y, m + 1, 0);
+    if (z < earliest || a > latest) m = firstOkMonth(y);
+    view = new Date(y, m, 1); renderCal();
+  });
+  document.getElementById("selM").addEventListener("change", function () {
+    view = new Date(view.getFullYear(), Number(this.value), 1); renderCal();
+  });
+  document.getElementById("selD").addEventListener("change", function () {
+    if (this.value) selectDay(this.value);
+  });
+  document.getElementById("calToday").addEventListener("click", function () { view = new Date(earliest.getFullYear(), earliest.getMonth(), 1); renderCal(); });
   renderCal();
 
-  /* ---- メールで予約リクエスト(Google Apps Script に送信) ---- */
+  /* ---- メールで問い合わせ(Google Apps Script に送信) ---- */
   // gas/セットアップ手順.md の手順でデプロイしたウェブアプリのURLをここに貼る
   var MAIL_ENDPOINT = "https://script.google.com/macros/s/AKfycbzrwQZFCCeqDVEqyRqkutSt2lJORcZl3sVw_RO__D3r7ymtDIEuqo_Utf2rq441ynqm/exec";
 
@@ -344,7 +431,7 @@
       .then(function (r) { return r.json(); })
       .then(function (cfg) {
         if (!cfg || !cfg.ok) return;
-        CONFIG = { rules: cfg.rules || [], cutoff: cfg.cutoff || [] };
+        CONFIG = { rules: cfg.rules || [], cutoff: cfg.cutoff || [], taken: cfg.taken || {} };
         setRange();
         if (selected && !bookable(fromKey(selected))) {
           selected = null;
@@ -374,6 +461,7 @@
     body.set("note", f.note.value.trim());
     body.set("website", f.website.value);
     body.set("tour", tourTitle || "(ツアー未選択)");
+    body.set("planId", tour || "");
     body.set("date", dateLabel(selected));
     body.set("summary", summaryTxt || "(人数・オプション未選択)");
 

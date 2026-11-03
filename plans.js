@@ -184,7 +184,7 @@ var PLANS = {
   },
 
   "ow-padi": {
-    genre: "ライセンス講習", genreUrl: "tours/license-packs.html",
+    genre: "スクーバダイビングライセンス講習", genreUrl: "tours/license-packs.html",
     title: "PADI オープンウォーターライセンス講習", badge: "留学生割引あり", img: UNS_LICENSE,
     facts: [["所要時間", "最短2日"], ["集合場所", "ショップ/ホテル送迎"], ["対象年齢", "10歳〜"], ["催行人数", "1名〜"]],
     overview: "世界共通の潜水ライセンス「PADI オープンウォーターダイバー」を、セブ島で取得する講習です。全員日本人インストラクターが日本語で丁寧に指導。学科はe-learningで行うため、講習の前にe-learningを終わらせてからお越しください。",
@@ -199,7 +199,7 @@ var PLANS = {
   },
 
   "ow-ssi": {
-    genre: "ライセンス講習", genreUrl: "tours/license-packs.html",
+    genre: "スクーバダイビングライセンス講習", genreUrl: "tours/license-packs.html",
     title: "SSI オープンウォーターライセンス講習", badge: "留学生割引あり", img: UNS_LICENSE,
     facts: [["所要時間", "最短2日"], ["集合場所", "ショップ/ホテル送迎"], ["対象年齢", "10歳〜"], ["催行人数", "1名〜"]],
     overview: "世界共通の潜水ライセンス「SSI オープンウォーターダイバー」を、セブ島で取得する講習です。SSI公式トレーニングセンターのオールブルーで、日本人インストラクターが日本語で指導。学科はアプリで学べるデジタル教材(e-learning)で行うため、講習の前に終わらせてからお越しください。",
@@ -214,7 +214,7 @@ var PLANS = {
   },
 
   "aow-padi": {
-    genre: "ライセンス講習", genreUrl: "tours/license-packs.html",
+    genre: "スクーバダイビングライセンス講習", genreUrl: "tours/license-packs.html",
     title: "PADI アドバンスドオープンウォーターライセンス講習", badge: "ステップアップ", img: UNS_LICENSE,
     facts: [["所要時間", "最短2日"], ["集合場所", "ショップ/ホテル送迎"], ["参加条件", "OWライセンス保持者"], ["催行人数", "1名〜"]],
     overview: "オープンウォーターの次のステップ。いろいろなタイプのダイビングを体験しながら、潜れる範囲を広げるアドバンス講習です。日本人インストラクターが丁寧にサポートします。学科はe-learningで行うため、講習の前に終わらせてからお越しください。",
@@ -229,7 +229,7 @@ var PLANS = {
   },
 
   "aow-ssi": {
-    genre: "ライセンス講習", genreUrl: "tours/license-packs.html",
+    genre: "スクーバダイビングライセンス講習", genreUrl: "tours/license-packs.html",
     title: "SSI アドバンスドオープンウォーターライセンス講習", badge: "ステップアップ", img: UNS_LICENSE,
     facts: [["所要時間", "最短2日"], ["集合場所", "ショップ/ホテル送迎"], ["参加条件", "OWライセンス保持者"], ["催行人数", "1名〜"]],
     overview: "SSIのアドバンスド講習。いろいろなタイプのダイビングを体験しながら、潜れる範囲を広げます。SSI公式トレーニングセンターのオールブルーで、日本人インストラクターが丁寧にサポートします。学科はデジタル教材(e-learning)で行うため、講習の前に終わらせてからお越しください。",
