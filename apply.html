@@ -96,6 +96,16 @@
   .cal-note{font-size:12.5px;}
 
   .cal-selects{display:flex;gap:10px;margin-bottom:16px;}
+
+  .line-note{margin-top:8px;font-size:12.5px;color:#C0392B;text-align:left;line-height:1.7;}
+  .policy{margin-top:18px;border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-align:left;background:#fff;}
+  .policy{border-color:#E8B4AE;background:#FFF8F7;}
+  .policy b{display:block;color:#C0392B;font-size:14px;margin-bottom:4px;}
+  .policy p{margin:0;font-size:13px;color:#C0392B;line-height:1.8;}
+  .policy p + p{margin-top:6px;}
+  .agree{display:flex !important;align-items:flex-start;gap:8px;font-weight:500 !important;font-size:13px !important;margin-top:14px !important;line-height:1.6;cursor:pointer;}
+  .mailform .agree input[type=checkbox]{display:inline-block;width:18px;height:18px;min-width:18px;margin:3px 0 0;padding:0;border:none;flex:none;accent-color:var(--coral);}
+  .mailform .agree span{flex:1;color:#C0392B;font-weight:700;}
   .cs{flex:1;position:relative;}
   .cs::after{content:"▾";position:absolute;right:14px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--muted);font-size:14px;}
   .cs select{width:100%;appearance:none;-webkit-appearance:none;font:inherit;font-size:17px;font-weight:700;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 34px 13px 16px;cursor:pointer;}
@@ -141,13 +151,13 @@
       <a href="index.html#tours">ツアー一覧</a>
       <a href="index.html#staff">スタッフ</a>
     </div>
-    <a class="btn-line" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">LINEで問い合わせる</a>
+    <a class="btn-line" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">LINEで申し込む</a>
   </div>
 </header>
 
 <div class="wrap">
   <div class="box">
-    <h1>お申込み・お問い合わせ</h1>
+    <h1>お申込み</h1>
     <p>お申込みのツアー：<span id="tourName">ツアーを選択してください</span></p>
     <div id="summaryBox" style="display:none;margin-top:12px;background:var(--sand);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13.5px;color:var(--ink);text-align:left;">
       <b style="color:var(--navy)">選択内容</b><br><span id="summary"></span>
@@ -169,34 +179,35 @@
       <div class="cal-picked" id="calPicked">日付が未選択です</div>
       <div class="cal-note">受付は前日までです。予約はスタッフが内容を確認し、LINEでご連絡した時点で確定します。</div>
     </div>
-    <p>本ページは実験的なモックアップです。以下のいずれかの方法でお問い合わせください。</p>
+    <p>本ページは実験的なモックアップです。以下のいずれかの方法でお申込みください。</p>
+
+    <div class="policy">
+      <b>お支払い・キャンセルについて</b>
+      <p>お支払いは、ツアー当日に現地でお願いしています(予約金はいただきません)。</p>
+      <p>確定したご予約をお客様のご都合でキャンセルされる場合は、キャンセル料としてツアー代金の20%をいただきます。ご連絡の方法やお支払い方法(銀行振込など)は、キャンセルのご連絡を受けた際にご案内します。悪天候・海況など当社の都合でツアーを中止する場合は、キャンセル料はいただきません。</p>
+    </div>
 
     <a class="method line" id="lineBtn" href="https://line.me/R/ti/p/@513pefsy" target="_blank" rel="noopener">
       <div>
-        <div class="t" id="lineBtnT">LINEで問い合わせる</div>
-        <div class="d" id="lineBtnD">24時間受付・一番早いお問い合わせ方法です</div>
+        <div class="t" id="lineBtnT">LINEで申し込む</div>
+        <div class="d" id="lineBtnD">24時間受付・一番早いお申込み方法です</div>
       </div>
       <div class="go">開く</div>
     </a>
+    <div class="line-note">※「この内容でLINEに送る」は、スマートフォンのLINEアプリでのみご利用いただけます。パソコンの方は、下の「メールで申し込む」からお申込みください。</div>
     <form class="mailform" id="mailForm" novalidate>
-      <div class="t">メールで問い合わせ</div>
+      <div class="t">メールで申し込む</div>
       <div class="d">LINEをお使いでない方はこちら。上のカレンダーで希望日を選んでから送信してください。</div>
       <label>お名前<input name="name" required maxlength="60" autocomplete="name"></label>
       <label>メールアドレス<input name="email" type="email" required maxlength="100" autocomplete="email"></label>
       <label>電話番号(任意)<input name="tel" maxlength="30" autocomplete="tel"></label>
       <label>ご要望・ご質問(任意)<textarea name="note" rows="3" maxlength="1000"></textarea></label>
       <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <button type="submit" id="mailBtn">この内容で送信する</button>
+      <label class="agree"><input type="checkbox" name="agree" value="yes"><span>上記のお支払い・キャンセルについて(キャンセル料はツアー代金の20%)に同意して申し込みます。</span></label>
+      <button type="submit" id="mailBtn">この内容で申し込む</button>
       <div id="mailMsg" role="status"></div>
       <div class="priv">ご入力の個人情報は、ご予約のご連絡にのみ使用します。</div>
     </form>
-    <div class="method">
-      <div>
-        <div class="t">お電話でのお問い合わせ</div>
-        <div class="d">現地スタッフに直接ご相談いただけます</div>
-      </div>
-      <div class="go">開く</div>
-    </div>
   </div>
 </div>
 
@@ -351,14 +362,16 @@
     var btn = document.getElementById("lineBtn");
     if (!selected) {
       btn.href = "https://line.me/R/ti/p/@513pefsy";
-      document.getElementById("lineBtnT").textContent = "LINEで問い合わせる";
-      document.getElementById("lineBtnD").textContent = "24時間受付・一番早いお問い合わせ方法です";
+      document.getElementById("lineBtnT").textContent = "LINEで申し込む";
+      document.getElementById("lineBtnD").textContent = "24時間受付・一番早いお申込み方法です";
       return;
     }
     var lines = ["【Webからのご予約リクエスト】"];
     if (tourTitle) lines.push("ツアー：" + tourTitle);
     lines.push("希望日：" + dateLabel(selected));
     if (summaryTxt) lines.push("内容：" + summaryTxt);
+    if (tour) lines.push("プランコード：" + tour);
+    lines.push("※お支払いは当日現地払い、確定後のキャンセルはツアー代金の20%のキャンセル料がかかることに同意して申し込みます。");
     lines.push("※この内容で送信します。スタッフが確認後、ご連絡します。");
     btn.href = "https://line.me/R/oaMessage/@513pefsy/?" + encodeURIComponent(lines.join("\n"));
     document.getElementById("lineBtnT").textContent = "この内容でLINEに送る";
@@ -454,12 +467,15 @@
     if (!f.name.value.trim()) return say("お名前を入力してください。", "err");
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.value.trim())) return say("メールアドレスを正しく入力してください。", "err");
 
+    if (!f.agree.checked) return say("お支払い・キャンセルについてご確認のうえ、同意にチェックを入れてください。", "err");
+
     var body = new URLSearchParams();
     body.set("name", f.name.value.trim());
     body.set("email", f.email.value.trim());
     body.set("tel", f.tel.value.trim());
     body.set("note", f.note.value.trim());
     body.set("website", f.website.value);
+    body.set("agree", "yes");
     body.set("tour", tourTitle || "(ツアー未選択)");
     body.set("planId", tour || "");
     body.set("date", dateLabel(selected));
